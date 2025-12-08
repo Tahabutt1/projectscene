@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bizera - Online Gaming Website HTML Template</title>
+
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/plugin/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugin/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugin/slick.css">
+    <link rel="stylesheet" href="assets/css/ara-font.css">
+    <link rel="stylesheet" href="assets/css/plugin/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Quick theming for the global "coming soon" popup */
+        .navbar-nav .nav-link {
+            white-space: nowrap;
+        }
+        .brand-logo {
+            height: 96px;
+            width: auto;
+            object-fit: contain;
+            transform: scale(2); /* Adjust the number as needed */
+          }
+        @media (max-width: 767px) {
+            .brand-logo {
+                height: 72px;
+            }
+        }
+        .coming-soon-modal {
+            background: radial-gradient(circle at 20% 20%, rgba(122, 97, 255, 0.35), rgba(27, 15, 52, 0.9)),
+                        linear-gradient(135deg, #1b0f34 0%, #2a154c 50%, #120826 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(123, 97, 255, 0.35);
+            color: #fff;
+        }
+        .coming-soon-modal .modal-body {
+            padding: 45px 30px;
+        }
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f8ae3d, #ff5ec3);
+            color: #0c051a;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(255, 94, 195, 0.35), 0 0 25px rgba(248, 174, 61, 0.45);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        .coming-soon-copy {
+            font-size: 16px;
+            color: #d7cfff;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .coming-soon-accent {
+            color: #f8ae3d;
+            font-weight: 700;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(248, 174, 61, 0.35), 0 0 15px rgba(255, 94, 195, 0.25); transform: scale(1); }
+            50% { box-shadow: 0 0 40px rgba(248, 174, 61, 0.6), 0 0 30px rgba(255, 94, 195, 0.45); transform: scale(1.05); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#home">
+                            <img src="assets/images/logo.png" class="fav d-none d-lg-block d-xl-none brand-logo" alt="logo">
+                            <img src="assets/images/logo.png" class="logo d-block d-lg-none d-xl-block brand-logo" alt="logo">
+                        </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#what-is-playparadice">About US</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#core-features">How It Works</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#how-it-works">Core Features</a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#roadmap">Roadmap</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="#safer-play">Safer Play / disclaimer</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#faq">FAQ</a>
+                                </li>
+                            </ul>
+                     
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+
+    <!-- Global "Coming Soon" Modal -->
+    <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content coming-soon-modal">
+                <div class="modal-body text-center">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <p class="coming-soon-copy">We’re polishing the next drop of <span class="coming-soon-accent">PlayParadice</span> goodness. Check back shortly!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Section start -->
+    <section class="banner-section index" id="home">
+        <div class="overlay">
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-xl-6 col-lg-6 col-md-8">
+                            <div class="main-content">
+                                <div class="top-area section-text">
+                                    <h5 class="sub-title">Welcome To Crypto Casino</h5>
+                                    <h1 class="title">The New  <span>Home of Crypto Casino</span>Degen Play</h1>
+                                    <p class="xlr">PlayParadice is a crypto-native casino and betting platform powered by the $PRD token, built for players who want on-chain transparency, instant payouts, and GameFi-style rewards.</p>
+                                    <div class="btn-area mt-30">
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginMod" class="cmn-btn reg">Staking
+                                            <i class="icon-d-right-arrow-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="counter-section">
+            <div class="container wow fadeInUp">
+                <div class="main-content">
+                    <div class="row cus-mar">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single-box d-flex align-items-center">
+                                <div class="img-area">
+                                    <img src="assets/images/icon/counter-icon-1.png" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h6>Weekly Draw Prizes</h6>
+                                    <h3>$<span class="counter">1350</span></h3>
+                                    <p>Next Draw in <span>04d 21h 46m</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single-box second d-flex align-items-center">
+                                <div class="img-area">
+                                    <img src="assets/images/icon/counter-icon-2.png" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h6>Paid Overall</h6>
+                                    <h3>$<span class="counter">1144624</span></h3>
+                                    <p>Overall Winnings <span>paid to players</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+
+    <!-- Popular Game start -->
+    <section class="popular-game" id="what-is-playparadice">
+        <div class="overlay pt-120 pb-120">
+            <div class="container">
+                <div class="row wow fadeInUp">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-text mb-4">
+                            <h2 class="title">What Is PlayParadice?</h2>
+                            <p>PlayParadice is a next-generation crypto gambling and betting platform where everything revolves around one token: $PRD. Our goal is simple — combine the excitement of casino games with the transparency of on-chain infrastructure and the long-term incentives of GameFi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 wow fadeInUp">
+                        <div class="prd-vision row g-4 align-items-stretch">
+                            <div class="col-lg-5 col-xl-4">
+                                <div class="feature-stack h-100">
+                                    <div class="feature-card">
+                                        <div class="icon-wrap dice">
+                                            🎲
+                                        </div>
+                                        <div class="text">
+                                            <h6>Crypto Casino First</h6>
+                                            <p>Dice, slots, table games and high-frequency betting tailored for on-chain degens.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-card">
+                                        <div class="icon-wrap gem">
+                                            💎
+                                        </div>
+                                        <div class="text">
+                                            <h6>Token at the Center</h6>
+                                            <p>$PRD powers staking, rewards, cashback, rakeback, VIP and future Layer-2 economics.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-card">
+                                        <div class="icon-wrap rocket">
+                                            🚀
+                                        </div>
+                                        <div class="text">
+                                            <h6>Future-Proof Design</h6>
+                                            <p>A long-term roadmap that includes a dedicated PlayParadice Layer-2 optimized for gaming transactions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-xl-8">
+                                <div class="vision-card h-100">
+                                    <h4 class="title">Our Vision</h4>
+                                    <p>PlayParadice represents a paradigm shift in the gaming industry. We're combining the excitement of casino games with the transparency of on-chain infrastructure and the long-term incentives of GameFi.</p>
+                                    <p>Everything revolves around one token: <strong>$PRD.</strong> Our goal is simple yet ambitious — to create an ecosystem where players have full transparency, earn sustainable rewards, and participate in a truly decentralized gaming experience.</p>
+                                    <p>We believe the future of gaming is on-chain, and we're building the platform to make it accessible, exciting, and rewarding for everyone.</p>
+                                    <div class="btn-area mt-4">
+                                        <a href="javascript:void(0)" class="cmn-btn">Staking <i class="icon-d-right-arrow-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row wow fadeInUp mt-60">
+                    <div class="games-carousel">
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-1.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Slots + Rakeback</h6>
+                                            <p>Spin popular reels and earn PRD on every wager.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-2.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Provably Fair</h6>
+                                            <p>Table games verified on-chain for transparent results.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-3.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Live Casino</h6>
+                                            <p>Streamed dealers with instant payouts to your wallet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-4.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Tournaments</h6>
+                                            <p>Climb leaderboards and unlock boosted PRD jackpots.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-5.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Jackpots</h6>
+                                            <p>Stake to grow the pot and trigger mega prize drops.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-6.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Crash &amp; Plinko</h6>
+                                            <p>Community favorites with fair odds and fast cashouts.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="game-card">
+                                <div class="card-inner">
+                                    <div class="card-face card-front">
+                                        <img src="assets/images/popular-game-image-3.png" alt="Image">
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-back-content">
+                                            <h6>Skill Games</h6>
+                                            <p>Compete head-to-head and get paid instantly in PRD.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="btn-area mt-40 text-center">
+                            <a href="games.html" class="cmn-btn">
+                               Staking
+                                <i class="icon-d-right-arrow-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Popular Game end -->
+
+    <!-- Features start -->
+    <section class="features" id="why-prd">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-9">
+                        <div class="section-top">
+                            <div class="section-text">
+                                <h5 class="sub-title">$PRD Fuels the Future of On-Chain Gaming</h5>
+                                <h2 class="title">Why the $PRD Token Matters</h2>
+                                <p> $PRD isn’t just a logo on the site — it’s the backbone of the PlayParadice ecosystem.
+                                </p>
+                            </div>
+                            <div class="btn-area">
+                                <a href="games.html" class="cmn-btn">
+                                    Enter our Universe
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar pt-120">
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <h4>Staking & Yield</h4>
+                            </div>
+                            <ul style="text-align: left; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+                                <li>Stake $PRD to earn platform rewards</li>
+                                <li>Unlock higher tiers in loyalty system</li>
+                                <li>First live utility from launch</li>
+                                <li>Central to platform growth</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box second">
+                            <div class="icon-box">
+                                <h4>Casino Rewards & VIP</h4>
+                            </div>
+                            <ul style="text-align: left; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+                                <li>Cashback on losses</li>
+                                <li>Rakeback on volume</li>
+                                <li>Boosted rewards for VIPs</li>
+                                <li>Special bonuses for high-stakes players</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box third">
+                            <div class="icon-box">
+                                <h4>Layer-2 & Future Utility</h4>
+                            </div>
+                            <ul style="text-align: left; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+                                <li>PlayParadice gaming-focused L2</li>
+                                <li>Power platform fees</li>
+                                <li>Drive incentives</li>
+                                <li>Validator/sequencer staking potential</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box fourth">
+                            <div class="icon-box">
+                                <h4>Ecosystem Integration</h4>
+                            </div>
+                            <ul style="text-align: left; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+                                <li>Listed on partner casinos</li>
+                                <li>Integrated into GameFi dApps</li>
+                                <li>Multi-platform presence</li>
+                                <li>Extended utility beyond single platform</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features end -->
+
+    <!-- How it works start -->
+    <section class="how-works" id="core-features">
+        <div class="overlay pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">How PlayParadice Works</h5>
+                            <h2 class="title">It’s Really Easy!</h2>
+                            <p>It’s easier than you think.Follow 4 simple easy steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box text-center">
+                            <div class="thumb">
+                                <img src="assets/images/icon/how-works-icon-1.png" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Get $PRD</h5>
+                                <p> Acquire $PRD during the presale or later via supported DEXes and exchanges (once live)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box mid text-center">
+                            <div class="thumb">
+                                <img src="assets/images/icon/how-works-icon-2.png" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Stake & Settle In
+                                </h5>
+                                <p>Stake your $PRD to start earning rewards and boost your status in the PlayParadice loyalty system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box text-center">
+                            <div class="thumb">
+                                <img src="assets/images/icon/how-works-icon-3.png" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Play in the Casino</h5>
+                                <p> Use $PRD (and other supported assets) to wager in the PlayParadice casino on web and, later, Telegram. As you play, you generate volume that can contribute to your rewards and VIP progression.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box text-center last-step">
+                            <div class="thumb">
+                                <img src="assets/images/icon/how-works-icon-1.png" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5> Grow With the Ecosystem</h5>
+                                <p>As we roll out cashback, rakeback, NFTs, L2 and partner integrations, long-term players and holders benefit from deeper utility and more ways to use $PRD.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it works end -->
+
+    <!-- Drops & Wins start -->
+    <section class="drops-wins" id="how-it-works">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-xxl-5 col-xl-6 col-md-6">
+                        <div class="section-header">
+                            <h5 class="sub-title">Built for Crypto Casino Players</h5>
+                            <h2 class="title">Easy way for crypto  Play</h2>
+                        </div>
+                        <div class="core-feature-cards">
+                            <div class="core-feature-card">
+                                <div class="icon-badge">🎰</div>
+                                <span class="eyebrow"> Crypto Casino Experience</span>
+                                <h5>Fast, Familiar, On-Chain</h5>
+                                <p>Play classic casino games — dice, slots, simple tables and more — with crypto deposits and withdrawals, clean UI and fair odds. No web2 account nonsense, just connect your wallet and play (where legal).</p>
+                            </div>
+                            <div class="core-feature-card">
+                                <div class="icon-badge">🪙</div>
+                                <span class="eyebrow">Staking &amp; Rewards</span>
+                                <h5>Stake, Earn, Level Up</h5>
+                                <p>Stake $PRD to earn rewards, unlock better cashback/rakeback tiers, and climb the loyalty ladder. Long-term players and holders progress faster and get access to more perks.</p>
+                            </div>
+                            <div class="core-feature-card">
+                                <div class="icon-badge">💬</div>
+                                <span class="eyebrow">Telegram Mini-Casino</span>
+                                <h5>Play From Your Chat</h5>
+                                <p>Enjoy a lightweight PlayParadice experience directly inside Telegram. Quick sessions, easy sharing and the same $PRD-driven economy behind the scenes.</p>
+                            </div>
+                            <div class="core-feature-card">
+                                <div class="icon-badge">🚀</div>
+                                <span class="eyebrow">Future-Ready L2</span>
+                                <h5>Designed to Scale</h5>
+                                <p>High-frequency betting needs more than a single chain. Our roadmap includes PlayParadice Layer-2, tuned for ultra-low-fee, high-speed gaming transactions with $PRD at its core.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-md-6">
+                        <div class="right-box">
+                            <h4 class="mb-30">Deposit and Play</h4>
+                            <form action="#">
+                                <div class="input-field thumb-select d-flex">
+                                    <input type="text" placeholder="0.001">
+                                    <select>
+                                        <option value="1">BTC</option>
+                                        <option value="2">ETH</option>
+                                        <option value="3">LTC</option>
+                                    </select>
+                                </div>
+                                <div class="btn-area mb-30 mt-60">
+                                    <a href="javascript:void(0)" class="cmn-btn w-100">
+                                        Start Playing
+                                        <i class="icon-d-right-arrow-2"></i>
+                                    </a>
+                                </div>
+                                <p>By Clicking you agree with our</p>
+                                <div class="link-area gap-1 d-flex align-items-center justify-content-center">
+                                    <a href="terms-conditions.html">Terms and Conditions,</a>
+                                    <a href="privacy-policy.html">Privacy Policy</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Drops & Wins end -->
+
+    <!-- Roadmap start -->
+    <section class="roadmap-section" id="roadmap">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h2 class="sub-title">Roadmap</h2>
+                            <h2 class="title">A focused 3-year roadmap to revolutionize on-chain gaming with Layer-2 innovation.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-60">
+                    <div class="col-lg-10">
+                        <div class="roadmap-timeline">
+                            <!-- 2025 -->
+                            <div class="timeline-year">
+                                <div class="year-header">
+                                    <h3>2025 – Foundations</h3>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q4 2025</div>
+                                        <ul class="timeline-list">
+                                            <li>Finalize the PlayParadice brand and launch playparadice.io v1 (coming soon + roadmap).</li>
+                                            <li>Publish the litepaper and open official community channels (Telegram, Discord, X).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2026 -->
+                            <div class="timeline-year">
+                                <div class="year-header">
+                                    <h3>2026 – $PRD, Staking & Casino Launch</h3>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q1 2026</div>
+                                        <ul class="timeline-list">
+                                            <li>Run the $PRD presale, then TGE & token claiming on playparadice.io.</li>
+                                            <li>Launch $PRD staking (off-chain v1 + on-chain staking v2 with a public dashboard) as the first live utility.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q2 2026</div>
+                                        <ul class="timeline-list">
+                                            <li>Add DEX liquidity & trading for $PRD, with Dexscreener / CoinGecko / CMC tracking.</li>
+                                            <li>Release the Telegram mini-casino and start regular community competitions.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q3 2026</div>
+                                        <ul class="timeline-list">
+                                            <li>Start closed alpha of the PlayParadice casino using $PRD for wagering.</li>
+                                            <li>Launch the public PlayParadice casino (web) with $PRD wagering and core games (as alpha proves stable).</li>
+                                            <li>Roll out referral v1 and begin $PRD buybacks from platform revenue.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q4 2026</div>
+                                        <ul class="timeline-list">
+                                            <li>Introduce strategic $PRD burns with transparent on-chain proof.</li>
+                                            <li>Expand multilingual support and refine casino UX and VIP structure.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2027 -->
+                            <div class="timeline-year">
+                                <div class="year-header">
+                                    <h3>2027 – Advanced Utility & Layer-2 Build-Out</h3>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q1 2027</div>
+                                        <ul class="timeline-list">
+                                            <li>Launch the $PRD cashback & rakeback engine with a tiered VIP system.</li>
+                                            <li>Add multi-currency support (e.g. USDC / major coins) while keeping $PRD as the primary rewards token.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q2 2027</div>
+                                        <ul class="timeline-list">
+                                            <li>Implement on-chain / verifiable RNG v1 for selected games.</li>
+                                            <li>Begin formal PlayParadice Layer-2 (L2) architecture & token economics design focused on high-frequency betting.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q3 2027</div>
+                                        <ul class="timeline-list">
+                                            <li>Launch the PlayParadice L2 public testnet with incentivized missions (bridge, test bets, stress tests).</li>
+                                            <li>Deploy the $PRD gamification layer (XP, levels, seasons) tied to both mainnet and L2 activity.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q4 2027</div>
+                                        <ul class="timeline-list">
+                                            <li>Ship a "Roll of Fortune"-style NFT collection with real casino perks (boosted rakeback, VIP access, XP boosts).</li>
+                                            <li>Release L2-ready casino contracts and internal tooling to migrate high-frequency games onto L2.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2028 -->
+                            <div class="timeline-year">
+                                <div class="year-header">
+                                    <h3>2028 – L2 Mainnet, Ecosystem & Governance</h3>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q1 2028</div>
+                                        <ul class="timeline-list">
+                                            <li>Launch PlayParadice L2 mainnet for ultra-low-fee, high-speed games.</li>
+                                            <li>Enable the $PRD L1 ↔ L2 bridge and introduce L2-based $PRD staking / rewards.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q2 2028</div>
+                                        <ul class="timeline-list">
+                                            <li>Open the PlayParadice Developer SDK & APIs so external studios can build games on PlayParadice L2.</li>
+                                            <li>Integrate $PRD & PlayParadice L2 with partner casinos / GameFi dApps to extend liquidity and usage.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-quarter">Q3 2028</div>
+                                        <ul class="timeline-list">
+                                            <li>Launch a public PlayParadice Analytics & Risk Dashboard (volume, TVL, burns, L1/L2 usage, game metrics).</li>
+                                            <li>Start $PRD governance experiments (advisory votes / proposals) and push for CEX listings & global licensing expansion.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Roadmap end -->
+
+    <!-- Total Jackpot start -->
+    <section class="total-jackpot" id="safer-play">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-area text-center">
+                            <h5 class="sub-title">Play Responsibly </h5>
+                            <h3 class="title">122 163 738,00 EUR</h3>
+                            <div class="responsible-note">
+                                <p>Crypto gambling is high risk. You can win, you can lose, and token prices can move violently. PlayParadice is built for adults who understand these risks and choose to play responsibly.</p>
+                                <ul>
+                                    <li>Only wager what you can afford to lose.</li>
+                                    <li>Check the laws in your country before playing.</li>
+                                    <li>Use session limits and cooling-off periods if you need them.</li>
+                                    <li>PlayParadice does not provide financial advice, investment guarantees, or promises of profit.</li>
+                                </ul>
+                            </div>
+                            <div class="btn-area mt-40">
+                                <a href="games.html" class="cmn-btn">
+                                    All Jackpot Games
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                            <div class="icon-img"><img src="assets/images/jackpot-icon.png" alt="icon"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="title mb-20 d-flex justify-content-between">
+                            <h4>Jackpot Games</h4>
+                            <a href="javascript:void(0)">Show All</a>
+                        </div>
+                        <div class="jackpot-carousel">
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-1.png" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-2.png" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-3.png" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-1.png" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-4.png" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="assets/images/jackpot-image-3.png" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Total Jackpot end -->
+
+    <!-- Refer start -->
+    <section class="refer-section" id="refer-earn">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="shape-area">
+                    <img src="assets/images/refer-shape.png" alt="Image">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="section-header text-center mb-60">
+                            <h5 class="sub-title">Refer & Earn</h5>
+                            <h2 class="title">During the $PRD Staking Phase</h2>
+                            <p class="refer-intro">Turn your network into extra yield. While the $PRD staking program is live, PlayParadice will run a dedicated referral campaign that rewards you when your friends become part of the ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="refer-content-wrapper">
+                            <div class="row g-4 mb-60">
+                                <div class="col-lg-4">
+                                    <div class="refer-step-card">
+                                        <div class="step-icon">🔗</div>
+                                        <h4>Share your link</h4>
+                                        <p>Connect your wallet, generate your unique referral link, and share it with friends, community members and followers.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="refer-step-card">
+                                        <div class="step-icon">🪙</div>
+                                        <h4>They stake $PRD</h4>
+                                        <p>When someone joins PlayParadice through your link and stakes $PRD during the staking period, that activity is tracked to your referral.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="refer-step-card">
+                                        <div class="step-icon">💎</div>
+                                        <h4>You earn extra rewards</h4>
+                                        <p>A portion of the staking reward pool is reserved for referrers. The more real stakers you bring in (and the longer they stay staked), the more bonus rewards you can unlock.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="refer-highlights-card">
+                                        <h3 class="card-title">Referral highlights</h3>
+                                        <ul class="highlights-list">
+                                            <li>
+                                                <span class="highlight-icon">✓</span>
+                                                <div>
+                                                    <strong>Staking-focused</strong>
+                                                    <p>Rewards are based on actual staking activity, not just sign-ups.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="highlight-icon">✓</span>
+                                                <div>
+                                                    <strong>Synergy with loyalty</strong>
+                                                    <p>Successful referrers can unlock higher VIP tiers, better rakeback/cashback rates, and other $PRD benefits over time.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="highlight-icon">✓</span>
+                                                <div>
+                                                    <strong>Anti-abuse by design</strong>
+                                                    <p>Minimum stake amounts, time-based requirements and basic checks are used to reduce multi-account and self-referral abuse.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="refer-notes-card">
+                                        <h3 class="card-title">Important notes</h3>
+                                        <ul class="notes-list">
+                                            <li>Exact percentages, tiers and conditions will be published before the referral campaign starts.</li>
+                                            <li>Rewards are not guaranteed and will depend on the overall size of the staking pool, campaign parameters and real usage.</li>
+                                            <li>Referrals are meant to grow the PlayParadice community, not to encourage irresponsible gambling or financial decisions.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Refer end -->
+
+    <!-- FAQ Section start -->
+    <section class="faq-section" id="faq">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center mb-60">
+                            <h5 class="sub-title">FAQ</h5>
+                            <h2 class="title">Frequently Asked Questions</h2>
+                            <p>Find answers to common questions about PlayParadice, $PRD token, and our platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="accordion faq-accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faq1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <span class="faq-icon">💎</span>
+                                        <span class="faq-question">What is $PRD used for?</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>$PRD is the core token of PlayParadice. It powers staking, rewards (cashback, rakeback, VIP benefits), and will play a central role in our future gaming Layer-2.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faq2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        <span class="faq-icon">🎰</span>
+                                        <span class="faq-question">When will the casino launch?</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Our roadmap targets 2026 for the public launch of the PlayParadice casino, after the $PRD presale, staking, and initial DEX listing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faq3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        <span class="faq-icon">🌍</span>
+                                        <span class="faq-question">Is PlayParadice available in every country?</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>No. Online gambling is restricted or illegal in some jurisdictions. Users are responsible for checking their local laws, and we may geo-block certain regions in line with legal advice.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faq4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        <span class="faq-icon">🚀</span>
+                                        <span class="faq-question">Will there be a token presale?</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Yes. The presale is planned for Q1 2026, followed by TGE, token claiming, and staking going live.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faq5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        <span class="faq-icon">⚠️</span>
+                                        <span class="faq-question">Is this financial advice?</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>No. Nothing on this site or in our whitepaper is investment or financial advice. Always do your own research.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div class="row justify-content-center mb-80">
+                <div class="col-lg-8">
+                    <div class="footer-newsletter">
+                        <div class="newsletter-content text-center">
+                            <h3 class="newsletter-title">Stay Updated</h3>
+                            <p class="newsletter-subtitle">Get the latest updates on $PRD, staking rewards, and PlayParadice news</p>
+                        </div>
+                        <form action="#" class="newsletter-form">
+                            <div class="form-group input-area d-flex align-items-center">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn-area">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Main Content -->
+            <div class="footer-main pt-80 pb-60">
+                <div class="row g-4">
+                    <!-- About Column -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="index.html">
+                                    <img src="assets/images/logo.png" class="logo brand-logo" alt="PlayParadice Logo">
+                                </a>
+                            </div>
+                            <p class="footer-about">PlayParadice is a crypto-native casino and betting platform powered by the $PRD token, built for players who want on-chain transparency, instant payouts, and GameFi-style rewards.</p>
+                            <div class="social-links mt-30">
+                                <h6 class="social-title">Follow Us</h6>
+                                <ul class="social-list">
+                                    <li><a href="#" class="twitter" aria-label="Twitter" title="Twitter">𝕏</a></li>
+                                    <li><a href="#" class="telegram" aria-label="Telegram" title="Telegram">✈</a></li>
+                                    <li><a href="#" class="discord" aria-label="Discord" title="Discord">◆</a></li>
+                                    <li><a href="#" class="linkedin" aria-label="LinkedIn" title="LinkedIn">in</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Quick Links</h5>
+                            <ul class="footer-menu">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#what-is-playparadice">About Us</a></li>
+                                <li><a href="#core-features">How It Works</a></li>
+                                <li><a href="#how-it-works">Core Features</a></li>
+                                <li><a href="#roadmap">Roadmap</a></li>
+                                <li><a href="#refer-earn">Refer & Earn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Resources Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Resources</h5>
+                            <ul class="footer-menu">
+                                <li><a href="javascript:void(0)">Whitepaper</a></li>
+                                <li><a href="javascript:void(0)">Litepaper</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                                <li><a href="javascript:void(0)">Tokenomics</a></li>
+                                <li><a href="javascript:void(0)">Documentation</a></li>
+                                <li><a href="javascript:void(0)">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Legal & Support Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Legal & Support</h5>
+                            <ul class="footer-menu">
+                                <li><a href="javascript:void(0)">Terms & Conditions</a></li>
+                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                                <li><a href="javascript:void(0)">Responsible Gaming</a></li>
+                                <li><a href="javascript:void(0)">Cookie Policy</a></li>
+                                <li><a href="javascript:void(0)">Contact Support</a></li>
+                                <li><a href="#safer-play">Play Responsibly</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="copyright">
+                            <p>&copy; 2025 PlayParadice. All rights reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer-disclaimer text-lg-end">
+                            <p class="disclaimer-text">PlayParadice does not provide financial advice. Always do your own research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/fontawesome.js"></script>
+    <script src="assets/js/plugin/slick.js"></script>
+    <script src="assets/js/plugin/jquery.nice-select.min.js"></script>
+    <script src="assets/js/plugin/counter.js"></script>
+    <script src="assets/js/plugin/jquery.downCount.js"></script>
+    <script src="assets/js/plugin/waypoint.min.js"></script>
+    <script src="assets/js/plugin/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugin/wow.min.js"></script>
+    <script src="assets/js/plugin/plugin.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const modalEl = document.getElementById('comingSoonModal');
+            if (!modalEl || typeof bootstrap === 'undefined' || !bootstrap.Modal) return;
+            const comingSoonModal = new bootstrap.Modal(modalEl);
+
+            const shouldIgnore = (el) => {
+                // Skip navbar toggler, modal close buttons, and FAQ accordion buttons
+                return el.closest('.navbar-toggler') || 
+                       el.classList.contains('btn-close') || 
+                       el.classList.contains('accordion-button') ||
+                       el.closest('.faq-accordion');
+            };
+
+            const showComingSoon = (event) => {
+                if (shouldIgnore(event.target)) return;
+                event.preventDefault();
+                comingSoonModal.show();
+            };
+
+            // Attach to all buttons
+            document.querySelectorAll('button').forEach((btn) => {
+                btn.addEventListener('click', showComingSoon);
+            });
+
+            // Attach to main call-to-action anchors
+            document.querySelectorAll('a.cmn-btn').forEach((cta) => {
+                cta.addEventListener('click', showComingSoon);
+            });
+        })();
+    </script>
+</body>
+
+</html>
