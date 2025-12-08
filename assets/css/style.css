@@ -1468,6 +1468,396 @@ label {
   background-repeat: no-repeat;
   position: relative;
 }
+.popular-game .prd-vision-alt {
+  background: linear-gradient(135deg, rgba(27, 12, 67, 0.95), rgba(19, 9, 45, 0.95));
+  border: 2px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(161, 255, 0, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .prd-vision-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  opacity: 0.6;
+}
+.popular-game .prd-vision-alt:hover {
+  border-color: rgba(161, 255, 0, 0.2) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(161, 255, 0, 0.1);
+  transform: translateY(-4px);
+}
+.popular-game .feature-card-alt {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.popular-game .feature-card-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(161, 255, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+.popular-game .feature-card-alt:hover {
+  transform: translateX(8px) translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(161, 255, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(161, 255, 0, 0.15);
+}
+.popular-game .feature-card-alt:hover::before {
+  left: 100%;
+}
+.popular-game .feature-card-alt h6 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+.popular-game .feature-card-alt:hover h6 {
+  color: var(--primary-color);
+}
+.popular-game .feature-card-alt p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+.popular-game .feature-card-alt:hover p {
+  color: rgba(255, 255, 255, 0.95);
+}
+.popular-game .icon-badge {
+  width: 56px;
+  height: 56px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .feature-card-alt:hover .icon-badge {
+  transform: scale(1.15) rotate(5deg);
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 0 20px rgba(161, 255, 0, 0.3);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+.popular-game .icon-badge::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.popular-game .feature-card-alt:hover .icon-badge::after {
+  opacity: 1;
+  animation: iconShine 1.5s ease-in-out;
+}
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1.15) rotate(5deg); }
+  50% { transform: scale(1.2) rotate(8deg); }
+}
+@keyframes iconShine {
+  0% { transform: rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: rotate(180deg); opacity: 0; }
+}
+.popular-game .vision-card-alt {
+  padding-left: 32px;
+  padding-right: 20px;
+  position: relative;
+}
+.popular-game .vision-card-alt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-color), rgba(161, 255, 0, 0.5), transparent);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.popular-game .vision-card-alt .title {
+  color: var(--primary-color);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(161, 255, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.popular-game .vision-card-alt:hover .title {
+  text-shadow: 0 0 30px rgba(161, 255, 0, 0.5);
+  transform: translateX(4px);
+}
+.popular-game .vision-card-alt p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.popular-game .vision-card-alt:hover p {
+  color: rgba(255, 255, 255, 0.95);
+}
+.popular-game .vision-card-alt p strong {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(161, 255, 0, 0.4);
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn {
+  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover {
+  transform: translateX(6px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(161, 255, 0, 0.4);
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover::before {
+  left: 100%;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn i {
+  transition: transform 0.3s ease;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover i {
+  transform: translateX(4px);
+}
+.popular-game .prd-vision-alt {
+  background: linear-gradient(135deg, rgba(27, 12, 67, 0.95), rgba(19, 9, 45, 0.95));
+  border: 2px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(161, 255, 0, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .prd-vision-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  opacity: 0.6;
+}
+.popular-game .prd-vision-alt:hover {
+  border-color: rgba(161, 255, 0, 0.2) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(161, 255, 0, 0.1);
+  transform: translateY(-4px);
+}
+.popular-game .feature-card-alt {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.popular-game .feature-card-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(161, 255, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+.popular-game .feature-card-alt:hover {
+  transform: translateX(8px) translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(161, 255, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(161, 255, 0, 0.15);
+}
+.popular-game .feature-card-alt:hover::before {
+  left: 100%;
+}
+.popular-game .feature-card-alt h6 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+.popular-game .feature-card-alt:hover h6 {
+  color: var(--primary-color);
+}
+.popular-game .feature-card-alt p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+.popular-game .feature-card-alt:hover p {
+  color: rgba(255, 255, 255, 0.95);
+}
+.popular-game .icon-badge {
+  width: 56px;
+  height: 56px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .feature-card-alt:hover .icon-badge {
+  transform: scale(1.15) rotate(5deg);
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 0 20px rgba(161, 255, 0, 0.3);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+.popular-game .icon-badge::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.popular-game .feature-card-alt:hover .icon-badge::after {
+  opacity: 1;
+  animation: iconShine 1.5s ease-in-out;
+}
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1.15) rotate(5deg); }
+  50% { transform: scale(1.2) rotate(8deg); }
+}
+@keyframes iconShine {
+  0% { transform: rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: rotate(180deg); opacity: 0; }
+}
+.popular-game .vision-card-alt {
+  padding-left: 32px;
+  padding-right: 20px;
+  position: relative;
+}
+.popular-game .vision-card-alt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-color), rgba(161, 255, 0, 0.5), transparent);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.popular-game .vision-card-alt .title {
+  color: var(--primary-color);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(161, 255, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.popular-game .vision-card-alt:hover .title {
+  text-shadow: 0 0 30px rgba(161, 255, 0, 0.5);
+  transform: translateX(4px);
+}
+.popular-game .vision-card-alt p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.popular-game .vision-card-alt:hover p {
+  color: rgba(255, 255, 255, 0.95);
+}
+.popular-game .vision-card-alt p strong {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(161, 255, 0, 0.4);
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn {
+  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover {
+  transform: translateX(6px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(161, 255, 0, 0.4);
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover::before {
+  left: 100%;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn i {
+  transition: transform 0.3s ease;
+}
+.popular-game .vision-card-alt .btn-area .cmn-btn:hover i {
+  transform: translateX(4px);
+}
 .popular-game .prd-vision {
   background: linear-gradient(135deg, rgba(20, 8, 54, 0.95), rgba(26, 18, 69, 0.95));
   border: 1px solid rgba(255, 255, 255, 0.06);
