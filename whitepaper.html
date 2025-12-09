@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>White Paper - PlayParadice</title>
 
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
@@ -23,34 +22,638 @@
             white-space: nowrap;
         }
         .brand-logo {
-            height: 96px;
+            height: 60px;
             width: auto;
             object-fit: contain;
-            transform: scale(2);
+            transform: scale(1.5);
         }
         @media (max-width: 767px) {
             .brand-logo {
-                height: 72px;
+                height: 48px;
             }
         }
-        .whitepaper-content {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        @media (max-width: 575px) {
+            .brand-logo {
+                height: 40px;
+                transform: scale(1.3);
+            }
         }
-        .whitepaper-content h1 {
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-shadow: 0 0 20px rgba(161, 255, 0, 0.5);
+        @media (max-width: 375px) {
+            .brand-logo {
+                height: 36px;
+                transform: scale(1.2);
+            }
         }
         body {
             background: linear-gradient(180deg, rgba(27, 12, 67, 0.98) 0%, rgba(19, 9, 45, 0.98) 50%, rgba(14, 6, 32, 0.98) 100%) !important;
         }
-        .features .overlay {
-            background: linear-gradient(180deg, rgba(27, 12, 67, 0.98) 0%, rgba(19, 9, 45, 0.98) 50%, rgba(14, 6, 32, 0.98) 100%) !important;
+        
+        /* Whitepaper Layout */
+        .whitepaper-wrapper {
+            display: flex;
+            min-height: calc(100vh - 100px);
+            padding-top: 100px;
+        }
+        
+        /* Sidebar */
+        .whitepaper-sidebar {
+            width: 280px;
+            position: fixed;
+            left: 0;
+            top: 100px;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+            background: rgba(20, 8, 54, 0.95);
+            border-right: 1px solid rgba(161, 255, 0, 0.2);
+            padding: 30px 20px;
+            z-index: 100;
+        }
+        
+        .whitepaper-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .whitepaper-sidebar::-webkit-scrollbar-track {
+            background: rgba(27, 12, 67, 0.5);
+        }
+        
+        .whitepaper-sidebar::-webkit-scrollbar-thumb {
+            background: rgba(161, 255, 0, 0.3);
+            border-radius: 3px;
+        }
+        
+        .sidebar-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(161, 255, 0, 0.3);
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 10px 15px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: rgba(161, 255, 0, 0.1);
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+        
+        .sidebar-nav .sub-item {
+            padding-left: 30px;
+            font-size: 13px;
+        }
+        
+        /* Main Content */
+        .whitepaper-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 60px;
+            max-width: 900px;
+            color: var(--para-color);
+        }
+        
+        .whitepaper-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(161, 255, 0, 0.3);
+        }
+        
+        .whitepaper-content section {
+            margin-bottom: 60px;
+            scroll-margin-top: 120px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .whitepaper-content section.active {
+            display: block;
+        }
+        
+        /* Show only key-facts section on initial page load */
+        .whitepaper-content section#key-facts.initial-load {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .whitepaper-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--bs-white);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        
+        .whitepaper-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .whitepaper-content h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .whitepaper-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .whitepaper-content ul,
+        .whitepaper-content ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .whitepaper-content li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .whitepaper-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(27, 12, 67, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .whitepaper-content table th,
+        .whitepaper-content table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(161, 255, 0, 0.1);
+        }
+        
+        .whitepaper-content table th {
+            background: rgba(161, 255, 0, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .whitepaper-content table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .whitepaper-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .whitepaper-content a:hover {
+            color: #00ff00;
+        }
+        
+        /* Tablet Responsive (768px - 991px) */
+        @media (max-width: 991px) and (min-width: 768px) {
+            .whitepaper-sidebar {
+                width: 240px;
+            }
+            
+            .whitepaper-content {
+                margin-left: 240px;
+                padding: 35px 40px;
+            }
+            
+            .whitepaper-content h1 {
+                font-size: 40px;
+            }
+            
+            .whitepaper-content h2 {
+                font-size: 28px;
+            }
+            
+            .whitepaper-content h3 {
+                font-size: 22px;
+            }
+        }
+        
+        /* Mobile Responsive (below 768px) */
+        @media (max-width: 767px) {
+            .whitepaper-sidebar {
+                display: none !important;
+            }
+            
+            .sidebar-toggle {
+                display: none !important;
+            }
+            
+            .overlay-dark {
+                display: none !important;
+            }
+            
+            .whitepaper-wrapper {
+                padding-top: 80px;
+            }
+            
+            .whitepaper-content {
+                margin-left: 0;
+                padding: 25px 20px;
+                padding-bottom: 100px; /* Add padding for fixed nav bar */
+                max-width: 100%;
+            }
+            
+            .whitepaper-content h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+                padding-bottom: 15px;
+            }
+            
+            .whitepaper-content h2 {
+                font-size: 24px;
+                margin-top: 30px;
+                margin-bottom: 15px;
+                padding-top: 15px;
+            }
+            
+            .whitepaper-content h3 {
+                font-size: 20px;
+                margin-top: 25px;
+                margin-bottom: 12px;
+            }
+            
+            .whitepaper-content h4 {
+                font-size: 18px;
+                margin-top: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .whitepaper-content p {
+                font-size: 16px;
+                line-height: 1.7;
+                margin-bottom: 12px;
+            }
+            
+            .whitepaper-content ul,
+            .whitepaper-content ol {
+                padding-left: 25px;
+                margin-bottom: 18px;
+            }
+            
+            .whitepaper-content li {
+                font-size: 16px;
+                line-height: 1.7;
+                margin-bottom: 8px;
+            }
+            
+            .whitepaper-content table {
+                font-size: 14px;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .whitepaper-content table th,
+            .whitepaper-content table td {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            
+            /* Fixed navigation bar on mobile */
+            .whitepaper-content section .section-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                margin: 0;
+                padding: 15px 15px;
+                z-index: 1000;
+                background: transparent;
+                border-top: none;
+            }
+        }
+        
+        /* Small Mobile (below 480px) */
+        @media (max-width: 479px) {
+            .whitepaper-wrapper {
+                padding-top: 70px;
+            }
+            
+            .whitepaper-content {
+                padding: 20px 15px;
+                padding-bottom: 90px;
+            }
+            
+            .whitepaper-content h1 {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+            
+            .whitepaper-content h2 {
+                font-size: 22px;
+            }
+            
+            .whitepaper-content h3 {
+                font-size: 18px;
+            }
+            
+            .whitepaper-content h4 {
+                font-size: 16px;
+            }
+            
+            .whitepaper-content p,
+            .whitepaper-content li {
+                font-size: 15px;
+            }
+            
+            .whitepaper-content section {
+                margin-bottom: 40px;
+            }
+            
+            .whitepaper-content section .section-nav {
+                padding: 12px 10px;
+            }
+            
+            .section-nav-btn {
+                padding: 10px 12px;
+                min-height: 55px;
+            }
+            
+            .section-nav-btn .nav-title {
+                font-size: 13px;
+            }
+            
+            .section-nav-btn .nav-label {
+                font-size: 10px;
+            }
+        }
+        
+        /* Header Responsive */
+        @media (max-width: 767px) {
+            .header-section .navbar {
+                padding: 15px 10px;
+            }
+            
+            .header-section .navbar .navbar-brand {
+                margin-right: 15px;
+            }
+            
+            .header-section .navbar .brand-logo {
+                max-height: 50px;
+            }
+            
+            .header-section .navbar .navbar-nav {
+                height: auto;
+                max-height: 400px;
+                overflow-y: auto;
+                margin: 20px 0;
+                padding: 10px 0;
+            }
+            
+            .header-section .navbar .navbar-nav .nav-item {
+                padding: 8px 0;
+            }
+            
+            .header-section .navbar .navbar-nav .nav-link {
+                font-size: 16px;
+                padding: 8px 15px;
+                white-space: nowrap;
+            }
+            
+            .whitepaper-wrapper {
+                padding-top: 80px;
+            }
+        }
+        
+        /* Landscape Mobile */
+        @media (max-width: 991px) and (orientation: landscape) {
+            .whitepaper-content {
+                padding-bottom: 90px;
+            }
+        }
+        
+        /* Desktop Large (1200px and above) */
+        @media (min-width: 1200px) {
+            .whitepaper-content {
+                max-width: 1000px;
+                padding: 50px 80px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .sidebar-toggle {
+                display: none;
+            }
+        }
+        
+        .overlay-dark {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        
+        .overlay-dark.active {
+            display: block;
+        }
+        
+        /* Section Navigation Bar */
+        .whitepaper-content section .section-nav {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: transparent;
+            backdrop-filter: none;
+            border-top: none;
+            padding: 20px 40px;
+            margin-top: 40px;
+            margin-bottom: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .whitepaper-content section:not(.active) .section-nav {
+            display: none;
+        }
+        
+        /* Ensure only active section's nav is visible on mobile */
+        @media (max-width: 991px) {
+            .whitepaper-content section:not(.active) .section-nav {
+                display: none !important;
+            }
+            
+            .whitepaper-content section.active .section-nav {
+                display: flex !important;
+            }
+        }
+        
+        .section-nav-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .section-nav-btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .section-nav-btn.prev {
+            justify-content: flex-start;
+        }
+        
+        .section-nav-btn.next {
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+        }
+        
+        .section-nav-btn.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .section-nav-btn .nav-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .section-nav-btn .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--bs-white);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 2px;
+        }
+        
+        .section-nav-btn:hover .nav-title {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .section-nav-btn .nav-arrow {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .section-nav-btn:hover .nav-arrow {
+            transform: scale(1.2);
+        }
+        
+        .section-nav-btn.prev .nav-arrow {
+            margin-right: 8px;
+        }
+        
+        .section-nav-btn.next .nav-arrow {
+            margin-left: 8px;
+        }
+        
+        /* Responsive Navigation Bar */
+        @media (max-width: 991px) {
+            .section-nav {
+                padding: 15px 20px;
+                margin-top: 0;
+            }
+            
+            .section-nav-btn {
+                padding: 12px 15px;
+                gap: 8px;
+                min-height: 60px;
+            }
+            
+            .section-nav-btn .nav-title {
+                font-size: 14px;
+                line-height: 1.3;
+            }
+            
+            .section-nav-btn .nav-label {
+                font-size: 11px;
+                margin-bottom: 2px;
+            }
+            
+            .section-nav-btn .nav-arrow {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-nav {
+                padding: 12px 10px;
+            }
+            
+            .section-nav-btn {
+                padding: 10px 12px;
+                gap: 6px;
+                min-height: 55px;
+            }
+            
+            .section-nav-btn .nav-title {
+                font-size: 13px;
+            }
+            
+            .section-nav-btn .nav-label {
+                font-size: 10px;
+            }
+            
+            .section-nav-btn .nav-arrow {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -73,12 +676,16 @@
                 <div class="row d-flex header-area">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo.png" class="fav d-none d-lg-block d-xl-none brand-logo" alt="logo">
-                            <img src="assets/images/logo.png" class="logo d-block d-lg-none d-xl-block brand-logo" alt="logo">
+                            <img src="assets/images/logo.png" class="fav d-none d-lg-block d-xl-none brand-logo" alt="logo" fetchpriority="high">
+                            <img src="assets/images/logo.png" class="logo d-block d-lg-none d-xl-block brand-logo" alt="logo" fetchpriority="high">
                         </a>
                         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbar-content">
-                            <i class="fas fa-bars"></i>
+                            data-bs-target="#navbar-content" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbar-content">
                             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
@@ -104,6 +711,7 @@
                                     <a class="nav-link" href="index.html#faq">FAQ</a>
                                 </li>
                             </ul>
+                     
                         </div>
                     </nav>
                 </div>
@@ -112,136 +720,692 @@
     </header>
     <!-- header-section end -->
 
-    <!-- Whitepaper Content Section start -->
-    <section class="features">
-        <div class="overlay pt-120 pb-120">
-            <div class="container">
-                <div class="whitepaper-content">
-                    <h1>Hello</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Whitepaper Content Section end -->
+    <!-- Whitepaper Wrapper -->
+    <div class="whitepaper-wrapper">
+        <!-- Sidebar Toggle for Mobile -->
+        <button class="sidebar-toggle" id="sidebarToggle">☰ Menu</button>
+        <div class="overlay-dark" id="overlayDark"></div>
+        
+        <!-- Sidebar Navigation -->
+        <aside class="whitepaper-sidebar" id="whitepaperSidebar">
+            <div class="sidebar-title">Contents</div>
+            <ul class="sidebar-nav">
+                <li><a href="#key-facts">1. Key Facts</a></li>
+                <li><a href="#executive-summary">2. Executive Summary</a></li>
+                <li><a href="#market-opportunity">3. Market & Opportunity</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#3-1-online-gaming">3.1 Online Casino Gaming Today</a></li>
+                        <li class="sub-item"><a href="#3-2-crypto-casino">3.2 Existing Crypto Casino Platforms</a></li>
+                        <li class="sub-item"><a href="#3-3-opportunity">3.3 PlayParadice's Opportunity</a></li>
+                    </ul>
+                </li>
+                <li><a href="#product-overview">4. Product Overview</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#4-1-web-casino">4.1 PlayParadice Web Casino</a></li>
+                        <li class="sub-item"><a href="#4-2-telegram-casino">4.2 PlayParadice Telegram Mini-Casino</a></li>
+                        <li class="sub-item"><a href="#4-3-prd-token">4.3 PRD Token</a></li>
+                        <li class="sub-item"><a href="#4-4-l2">4.4 PlayParadice L2 / Mainnet</a></li>
+                    </ul>
+                </li>
+                <li><a href="#user-journeys">5. User Journeys</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#5-1-player">5.1 Player Journey</a></li>
+                        <li class="sub-item"><a href="#5-2-holder">5.2 Holder / Staker Journey</a></li>
+                    </ul>
+                </li>
+                <li><a href="#token-design">6. Token Design</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#6-1-token-params">6.1 Token Parameters</a></li>
+                        <li class="sub-item"><a href="#6-2-allocation">6.2 Allocation</a></li>
+                        <li class="sub-item"><a href="#6-3-vesting">6.3 Vesting</a></li>
+                        <li class="sub-item"><a href="#6-4-sale">6.4 Token Sale Structure</a></li>
+                    </ul>
+                </li>
+                <li><a href="#utility">7. Utility of PRD</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#7-1-staking">7.1 On-Chain Staking</a></li>
+                        <li class="sub-item"><a href="#7-2-cashback">7.2 Cashback & Rakeback</a></li>
+                        <li class="sub-item"><a href="#7-3-vip">7.3 VIP & Loyalty</a></li>
+                        <li class="sub-item"><a href="#7-4-referral">7.4 Referral & Airdrops</a></li>
+                        <li class="sub-item"><a href="#7-5-wagering">7.5 Wagering & Promotions</a></li>
+                        <li class="sub-item"><a href="#7-6-l2-role">7.6 Future L2 Role</a></li>
+                    </ul>
+                </li>
+                <li><a href="#rewards">8. Rewards & "Play & Earn" Mechanics</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#8-1-staking-rewards">8.1 Staking Rewards</a></li>
+                        <li class="sub-item"><a href="#8-2-play-earn">8.2 Play & Earn Flow</a></li>
+                        <li class="sub-item"><a href="#8-3-airdrops">8.3 Airdrops & Community Campaigns</a></li>
+                    </ul>
+                </li>
+                <li><a href="#economics">9. Economic Model & Sustainability</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#9-1-revenue">9.1 Revenue Streams</a></li>
+                        <li class="sub-item"><a href="#9-2-sustainability">9.2 Sustainability Goals</a></li>
+                        <li class="sub-item"><a href="#9-3-burns">9.3 Buybacks & Burns</a></li>
+                    </ul>
+                </li>
+                <li><a href="#tech">10. Architecture & Technology</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#10-1-launch">10.1 Launch Architecture</a></li>
+                        <li class="sub-item"><a href="#10-2-l2">10.2 L2/Mainnet</a></li>
+                    </ul>
+                </li>
+                <li><a href="#security">11. Security & Fairness</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#11-1-contracts">11.1 Smart Contract Security</a></li>
+                        <li class="sub-item"><a href="#11-2-rng">11.2 RNG & Game Fairness</a></li>
+                        <li class="sub-item"><a href="#11-3-ops">11.3 Operational Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="#governance">12. Governance</a>
+                    <ul class="sidebar-nav">
+                        <li class="sub-item"><a href="#12-1-vision">12.1 Governance Vision</a></li>
+                        <li class="sub-item"><a href="#12-2-mechanisms">12.2 Mechanisms</a></li>
+                    </ul>
+                </li>
+                <li><a href="#roadmap">13. Roadmap (Short, Quarter-Based)</a></li>
+                <li><a href="#legal">14. Legal, Compliance & Responsible Gaming</a></li>
+                <li><a href="#risks">15. Risk Factors</a></li>
+                <li><a href="#team">16. Team & Advisors</a></li>
+                <li><a href="#conclusion">17. Conclusion</a></li>
+                <li><a href="#official-links">18. Official Links</a></li>
+            </ul>
+        </aside>
 
-    <!-- Footer Area Start -->
-    <footer class="footer-section">
-        <div class="container">
-            <!-- Newsletter Section -->
-            <div class="row justify-content-center mb-80">
-                <div class="col-lg-8">
-                    <div class="footer-newsletter">
-                        <div class="newsletter-content text-center">
-                            <h3 class="newsletter-title">Stay Updated</h3>
-                            <p class="newsletter-subtitle">Get the latest updates on $PRD, staking rewards, and PlayParadice news</p>
-                        </div>
-                        <form action="#" class="newsletter-form" id="newsletterForm">
-                            <div class="form-group input-area d-flex align-items-center">
-                                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
-                                <button type="submit" class="btn-area newsletter-submit-btn" aria-label="Send email">
-                                    <span class="send-icon">➤</span>
-                                </button>
-                            </div>
-                        </form>
-                        <!-- Success Banner -->
-                        <div class="newsletter-success-banner" id="newsletterSuccessBanner">
-                            <div class="success-banner-content">
-                                <span class="success-icon">✓</span>
-                                <span class="success-message">Successfully submitted!</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Main Content -->
+        <main class="whitepaper-content">
+            <h1>PlayParadice Whitepaper</h1>
 
-            <!-- Footer Main Content -->
-            <div class="footer-main pt-80 pb-60">
-                <div class="row g-4">
-                    <!-- About Column -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-widget">
-                            <div class="footer-logo mb-30">
-                                <a href="index.html">
-                                    <img src="assets/images/logo.png" class="logo brand-logo" alt="PlayParadice Logo">
-                                </a>
-                            </div>
-                            <p class="footer-about">PlayParadice is a crypto-native casino and betting platform powered by the $PRD token, built for players who want on-chain transparency, instant payouts, and GameFi-style rewards.</p>
-                            <div class="social-links mt-30">
-                                <h6 class="social-title">Follow Us</h6>
-                                <ul class="social-list">
-                                    <li><a href="#" class="twitter" aria-label="Twitter" title="Twitter">𝕏</a></li>
-                                    <li><a href="#" class="telegram" aria-label="Telegram" title="Telegram">✈</a></li>
-                                    <li><a href="#" class="discord" aria-label="Discord" title="Discord">◆</a></li>
-                                    <li><a href="#" class="linkedin" aria-label="LinkedIn" title="LinkedIn">in</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <section id="key-facts">
+                <h2>1. Key Facts</h2>
+                <ul>
+                    <li><strong>Project name</strong>: PlayParadice</li>
+                    <li><strong>Token name</strong>: PlayParadice Token</li>
+                    <li><strong>Ticker</strong>: PRD</li>
+                    <li><strong>Standard</strong>: ERC-20</li>
+                    <li><strong>Network</strong>: Ethereum Mainnet</li>
+                    <li><strong>Total supply</strong>: 3,000,000,000 PRD (3B), fixed – no further minting.</li>
+                    <li><strong>Staking</strong>: On-chain staking contracts only (no off-chain staking).</li>
+                </ul>
 
-                    <!-- Quick Links Column -->
-                    <div class="col-lg-2 col-md-6">
-                        <div class="footer-widget">
-                            <h5 class="widget-title">Quick Links</h5>
-                            <ul class="footer-menu">
-                                <li><a href="index.html#home">Home</a></li>
-                                <li><a href="index.html#what-is-playparadice">About Us</a></li>
-                                <li><a href="index.html#core-features">How It Works</a></li>
-                                <li><a href="index.html#how-it-works">Core Features</a></li>
-                                <li><a href="index.html#roadmap">Roadmap</a></li>
-                                <li><a href="index.html#refer-earn">Refer & Earn</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <h3>Primary utilities:</h3>
+                <ul>
+                    <li>Staking & loyalty</li>
+                    <li>Casino-style rewards (cashback, rakeback, VIP perks)</li>
+                    <li>Referral & community campaigns (including airdrops)</li>
+                    <li>Future Layer-2 (L2) / mainnet gas & ecosystem incentives</li>
+                </ul>
 
-                    <!-- Resources Column -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h5 class="widget-title">Resources</h5>
-                            <ul class="footer-menu">
-                                <li><a href="whitepaper.html">Whitepaper</a></li>
-                                <li><a href="javascript:void(0)">Litepaper</a></li>
-                                <li><a href="index.html#faq">FAQ</a></li>
-                                <li><a href="javascript:void(0)">Tokenomics</a></li>
-                                <li><a href="javascript:void(0)">Documentation</a></li>
-                                <li><a href="javascript:void(0)">Blog</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <h3>Products:</h3>
+                <ul>
+                    <li>Web casino gaming interface (playparadice.io)</li>
+                    <li>Telegram mini-casino</li>
+                    <li>Future PlayParadice Layer-2 / app-chain</li>
+                </ul>
 
-                    <!-- Legal & Support Column -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h5 class="widget-title">Legal & Support</h5>
-                            <ul class="footer-menu">
-                                <li><a href="javascript:void(0)">Terms & Conditions</a></li>
-                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                                <li><a href="javascript:void(0)">Responsible Gaming</a></li>
-                                <li><a href="javascript:void(0)">Cookie Policy</a></li>
-                                <li><a href="javascript:void(0)">Contact Support</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <p><strong>Roadmap start</strong>: Q4 2025</p>
+                <p><strong>Smart contract</strong>: PRD ERC-20 already deployed on Ethereum (official address announced via playparadice.io and official socials).</p>
+            </section>
 
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="copyright">
-                            <p>&copy; 2025 PlayParadice. All rights reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="footer-disclaimer text-lg-end">
-                            <p class="disclaimer-text">PlayParadice does not provide financial advice. Always do your own research.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
+            <section id="executive-summary">
+                <h2>2. Executive Summary</h2>
+                <p>PlayParadice is not merely an online casino; it is a crypto-native casino gaming ecosystem built around a single core asset: PRD, an ERC-20 token on Ethereum with a fixed total supply of 3,000,000,000 PRD (3B).</p>
+                <p>The PRD contract already exists on-chain. PlayParadice aims to reimagine how casino-style experiences interact with modern blockchain infrastructure, digital assets, and community-driven rewards. PRD is used for on-chain staking, loyalty, and a range of reward mechanisms, with a long-term roadmap that includes a dedicated gaming Layer-2 / mainnet anchored to Ethereum.</p>
+                <p>Over roughly three years, PlayParadice plans to:</p>
+
+                <h3>Phase 1 – Staking & Token Utility (2025–2026)</h3>
+                <ul>
+                    <li>Launch on-chain PRD staking contracts as the first live utility.</li>
+                    <li>Add DEX liquidity and make PRD tradable in DeFi.</li>
+                    <li>Release a Telegram mini-casino and then a full PlayParadice web casino, where PRD is tightly integrated into rewards and loyalty.</li>
+                </ul>
+
+                <h3>Phase 2 – Advanced Casino Utility & L2 Design (2026–2027)</h3>
+                <ul>
+                    <li>Expand PRD's role into cashback, rakeback, VIP tiers, and multi-currency support.</li>
+                    <li>Implement verifiable RNG for selected games.</li>
+                    <li>Design and launch a public testnet of the PlayParadice Layer-2 (L2) gaming network.</li>
+                    <li>Add GameFi elements such as XP, levels, missions, and NFT-backed perks.</li>
+                </ul>
+
+                <h3>Phase 3 – PlayParadice Mainnet / L2 & Ecosystem (2027–2028)</h3>
+                <ul>
+                    <li>Launch a gaming-optimized L2/mainnet anchored to Ethereum.</li>
+                    <li>Move high-frequency casino-style gaming to L2 for ultra-low fees.</li>
+                    <li>Release developer SDKs & APIs for external studios.</li>
+                    <li>Integrate PRD and PlayParadice L2 with partner casino gaming platforms and GameFi dApps; explore CEX listings and licensing expansion.</li>
+                </ul>
+
+                <p>PRD is explicitly designed as the economic and utility backbone of the ecosystem, used for on-chain staking, rewards, VIP privileges, referral incentives, airdrop campaigns, and later for L2 usage and incentives — not just as a promotional token.</p>
+            </section>
+
+            <section id="market-opportunity">
+                <h2>3. Market & Opportunity</h2>
+
+                <h3 id="3-1-online-gaming">3.1 Online Casino Gaming Today</h3>
+                <p>Online casino gaming is a large and mature segment of digital entertainment, but its infrastructure remains largely Web2. Players must trust centralized operators for odds, outcomes, and custody of funds. Payouts often depend on banks and payment processors, introducing delays and friction, and users get no real digital ownership or programmability.</p>
+
+                <h3 id="3-2-crypto-casino">3.2 Existing Crypto Casino Platforms</h3>
+                <p>Crypto casino platforms have improved some aspects—faster deposits/withdrawals, more global accessibility—but many:</p>
+                <ul>
+                    <li>Use generic or multi-token setups with shallow or confusing utility.</li>
+                    <li>Provide limited verifiable fairness regarding randomness and house edge.</li>
+                    <li>Treat tokens primarily as short-term bonuses rather than long-term ecosystem assets.</li>
+                    <li>Lack a credible infrastructure roadmap beyond a single-chain deployment.</li>
+                </ul>
+
+                <h3 id="3-3-opportunity">3.3 PlayParadice's Opportunity</h3>
+                <p>PlayParadice sees an opportunity at the intersection of casino-style gaming, on-chain infrastructure, and token-centric GameFi.</p>
+                <p><strong>The thesis:</strong></p>
+                <ul>
+                    <li>The experience should be wallet-first and Web3-native.</li>
+                    <li>A single coherent token (PRD) should sit at the center of staking, loyalty, and ecosystem rewards.</li>
+                    <li>Infrastructure should evolve toward a gaming-specific Layer-2, enabling micro-bets and high-frequency play at low cost without sacrificing transparency.</li>
+                </ul>
+            </section>
+
+            <section id="product-overview">
+                <h2>4. Product Overview</h2>
+
+                <h3 id="4-1-web-casino">4.1 PlayParadice Web Casino</h3>
+                <p>The PlayParadice web casino will offer a curated selection of casino-style games, including:</p>
+                <ul>
+                    <li>Dice and number games</li>
+                    <li>Slots</li>
+                    <li>Simple table games</li>
+                    <li>Over time, additional formats (e.g., crash-style games, live games)</li>
+                </ul>
+                <p><strong>Users:</strong></p>
+                <ul>
+                    <li>Connect Ethereum wallets</li>
+                    <li>Use PRD and other supported assets to participate</li>
+                    <li>Interact with a real-time interface tuned for crypto-native players</li>
+                </ul>
+
+                <h3 id="4-2-telegram-casino">4.2 PlayParadice Telegram Mini-Casino</h3>
+                <p>The Telegram mini-casino is a chat-native interface that:</p>
+                <ul>
+                    <li>Offers lightweight games suitable for quick sessions</li>
+                    <li>Integrates with the same backend and balances as the web casino</li>
+                    <li>Enables seamless movement between interfaces and viral sharing in Telegram communities</li>
+                </ul>
+
+                <h3 id="4-3-prd-token">4.3 PRD Token (Already Deployed)</h3>
+                <p>PRD is an ERC-20 token on Ethereum with a fixed supply of 3B, already deployed on-chain. It is central to:</p>
+                <ul>
+                    <li>On-chain staking</li>
+                    <li>Casino-style loyalty and rewards (cashback, rakeback, VIP)</li>
+                    <li>Referral and community campaigns (including airdrops)</li>
+                    <li>Future roles on a PlayParadice Layer-2 as gas, staking, and incentive asset</li>
+                </ul>
+
+                <h3 id="4-4-l2">4.4 PlayParadice L2 / Mainnet (Future Phase)</h3>
+                <p>PlayParadice plans to develop a gaming-optimized Layer-2 (L2) or app-chain anchored to Ethereum, designed for:</p>
+                <ul>
+                    <li>High throughput and low fees for casino-style gaming transactions</li>
+                    <li>Hosting first-party and third-party game contracts, staking contracts, and reward programs</li>
+                    <li>Bridging PRD to L2 as a primary economic asset</li>
+                </ul>
+            </section>
+
+            <section id="user-journeys">
+                <h2>5. User Journeys</h2>
+
+                <h3 id="5-1-player">5.1 Player Journey</h3>
+                <ol>
+                    <li><strong>Connect Wallet</strong> – Player visits playparadice.io and connects an Ethereum wallet (e.g., MetaMask, WalletConnect).</li>
+                    <li><strong>Acquire PRD</strong> – Player obtains PRD via DEX/CEX or community-oriented distribution events.</li>
+                    <li><strong>Stake PRD</strong> – Player stakes PRD in official on-chain staking contracts, earning rewards and enhancing loyalty rank.</li>
+                    <li><strong>Play Casino-Style Games</strong> – Player uses PRD (and other supported assets) to participate in games via the web casino or Telegram mini-casino. Game activity contributes to VIP progression and reward calculations.</li>
+                    <li><strong>Earn & Withdraw</strong> – Player claims staking and gameplay rewards in PRD and withdraws assets back to their wallet.</li>
+                </ol>
+
+                <h3 id="5-2-holder">5.2 Holder / Staker Journey</h3>
+                <ol>
+                    <li><strong>Acquire PRD</strong> – Via markets or distributions.</li>
+                    <li><strong>Stake On-Chain</strong> – Stake PRD in non-custodial contracts to earn yield and loyalty-related perks.</li>
+                    <li><strong>Participate</strong> – Provide advisory governance input, join campaigns, and benefit from ecosystem growth.</li>
+                    <li><strong>Optional Use</strong> – Actively use PRD in the ecosystem or hold/trade it based on personal strategy.</li>
+                </ol>
+            </section>
+
+            <section id="token-design">
+                <h2>6. Token Design</h2>
+
+                <h3 id="6-1-token-params">6.1 Token Parameters</h3>
+                <ul>
+                    <li><strong>Name</strong>: PlayParadice Token</li>
+                    <li><strong>Symbol</strong>: PRD</li>
+                    <li><strong>Standard</strong>: ERC-20</li>
+                    <li><strong>Network</strong>: Ethereum Mainnet</li>
+                    <li><strong>Total Supply</strong>: 3,000,000,000 PRD (3B)</li>
+                    <li><strong>Decimals</strong>: 18</li>
+                    <li><strong>Minting</strong>: None beyond the initial 3B (fixed supply). Burns may reduce supply over time.</li>
+                </ul>
+
+                <h3 id="6-2-allocation">6.2 Allocation (Including Airdrops)</h3>
+                <p><strong>Total supply</strong>: 3,000,000,000 PRD</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>%</th>
+                            <th>Tokens (PRD)</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Staking & Gameplay Rewards</td>
+                            <td>30%</td>
+                            <td>900,000,000</td>
+                            <td>On-chain staking emissions, play-to-earn rewards</td>
+                        </tr>
+                        <tr>
+                            <td>Airdrops & Community Campaigns</td>
+                            <td>5%</td>
+                            <td>150,000,000</td>
+                            <td>Targeted airdrops, quests, early-user campaigns</td>
+                        </tr>
+                        <tr>
+                            <td>Public Sale (Community / IDO)</td>
+                            <td>20%</td>
+                            <td>600,000,000</td>
+                            <td>Community distribution & fundraising</td>
+                        </tr>
+                        <tr>
+                            <td>Strategic / Private Rounds</td>
+                            <td>10%</td>
+                            <td>300,000,000</td>
+                            <td>Strategic partners, infrastructure allies</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidity (DEX & CEX / MM)</td>
+                            <td>5%</td>
+                            <td>150,000,000</td>
+                            <td>Seeding pools, market-making reserves</td>
+                        </tr>
+                        <tr>
+                            <td>Team</td>
+                            <td>12%</td>
+                            <td>360,000,000</td>
+                            <td>Founders & core contributors</td>
+                        </tr>
+                        <tr>
+                            <td>Advisors</td>
+                            <td>3%</td>
+                            <td>90,000,000</td>
+                            <td>Advisors, ambassadors</td>
+                        </tr>
+                        <tr>
+                            <td>Treasury & L2 Ecosystem Fund</td>
+                            <td>10%</td>
+                            <td>300,000,000</td>
+                            <td>L2 incentives, grants, emergency reserves</td>
+                        </tr>
+                        <tr>
+                            <td>Partnerships & Marketing</td>
+                            <td>5%</td>
+                            <td>150,000,000</td>
+                            <td>KOLs, campaigns, co-marketing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>100%</strong></td>
+                            <td><strong>3,000,000,000</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 id="6-3-vesting">6.3 Vesting & Release Schedules</h3>
+                <p>All vesting will use on-chain vesting or timelock contracts where practical.</p>
+                <ul>
+                    <li><strong>Team (12%)</strong> – 360,000,000 PRD<br>
+                        12-month cliff after token deployment.<br>
+                        Linear vesting over the following 36 months.</li>
+                    <li><strong>Advisors (3%)</strong> – 90,000,000 PRD<br>
+                        6-month cliff.<br>
+                        Linear vesting over 24 months.</li>
+                    <li><strong>Strategic / Private (10%)</strong> – 300,000,000 PRD<br>
+                        10–15% unlocked at allocation.<br>
+                        Remaining portion vested over 18–24 months.</li>
+                    <li><strong>Public Sale (20%)</strong> – 600,000,000 PRD<br>
+                        Example: 30% unlocked at allocation and 70% vested over 6–12 months.<br>
+                        Final vesting schedule will be published before the sale.</li>
+                    <li><strong>Staking & Gameplay Rewards (30%)</strong> – 900,000,000 PRD<br>
+                        Distributed over 5–7+ years to support staking and play-to-earn incentives.</li>
+                    <li><strong>Airdrops & Community Campaigns (5%)</strong> – 150,000,000 PRD<br>
+                        Used across multiple targeted campaigns and quests.</li>
+                    <li><strong>Treasury, Liquidity, Partnerships</strong><br>
+                        Managed via multisig and, in some cases, time-locked for stability and transparency.</li>
+                </ul>
+
+                <h3 id="6-4-sale">6.4 Token Sale Structure (High-Level)</h3>
+                <p>Strategic/private allocations are for long-term partners and infrastructure collaborators, with significant vesting to align incentives. Public sale allocations are structured to distribute PRD broadly while limiting short-term dumping via vesting schedules. Liquidity allocations support healthy trading on DEXs and, later, CEXs.</p>
+                <p>Exact pricing, caps, and schedules will be detailed in official sale documentation prior to any public or private sale.</p>
+            </section>
+
+            <section id="utility">
+                <h2>7. Utility of PRD</h2>
+                <p>PRD has multiple roles that deepen as the ecosystem evolves.</p>
+
+                <h3 id="7-1-staking">7.1 On-Chain Staking</h3>
+                <ul>
+                    <li>Users stake PRD directly in staking contracts on Ethereum.</li>
+                    <li>Rewards are distributed from the Staking & Gameplay Rewards pool.</li>
+                    <li>A staking dashboard shows total staked, APR, and user-specific metrics.</li>
+                    <li>Staking affects loyalty levels and may boost other rewards.</li>
+                </ul>
+
+                <h3 id="7-2-cashback">7.2 Cashback & Rakeback</h3>
+                <p>PRD is used to distribute:</p>
+                <ul>
+                    <li><strong>Cashback</strong>: partial refunds on net losses, paid in PRD and scaled by VIP tier.</li>
+                    <li><strong>Rakeback</strong>: a share of the effective house edge, also paid in PRD and tied to wagering volume.</li>
+                </ul>
+
+                <h3 id="7-3-vip">7.3 VIP & Loyalty</h3>
+                <p>VIP tiers consider:</p>
+                <ul>
+                    <li>PRD staked</li>
+                    <li>PRD usage</li>
+                    <li>Longevity</li>
+                </ul>
+                <p>Higher tiers unlock:</p>
+                <ul>
+                    <li>Better cashback/rakeback percentages</li>
+                    <li>Higher limits (where permissible)</li>
+                    <li>Access to exclusive games, events, and NFT perks</li>
+                </ul>
+
+                <h3 id="7-4-referral">7.4 Referral & Airdrop Campaigns</h3>
+                <p>PRD powers structured referral programs and airdrop campaigns:</p>
+                <ul>
+                    <li>Referral links allow users to earn PRD based on referrals' staking and gameplay.</li>
+                    <li>Airdrop campaigns reward OG community members, testers, and mission participants.</li>
+                    <li>Anti-abuse measures (minimum stake, duration, multi-account detection) protect the system.</li>
+                </ul>
+
+                <h3 id="7-5-wagering">7.5 Wagering & Promotions</h3>
+                <p>PRD is highlighted as a wagering currency for selected games and promotions. Special tournaments and events often pay out in PRD, and PRD-denominated volume is a key metric for loyalty and emission policies.</p>
+
+                <h3 id="7-6-l2-role">7.6 Future L2 / Mainnet Role</h3>
+                <p>On PlayParadice L2, PRD may be used as:</p>
+                <ul>
+                    <li>A gas/fee token</li>
+                    <li>A staking asset for sequencers/validators</li>
+                    <li>A primary incentive token for games and DeFi modules within the ecosystem</li>
+                </ul>
+            </section>
+
+            <section id="rewards">
+                <h2>8. Rewards & "Play & Earn" Mechanics</h2>
+
+                <h3 id="8-1-staking-rewards">8.1 Staking Rewards</h3>
+                <p>Staking rewards in PRD are paid from the Staking & Gameplay Rewards allocation. Rewards depend on:</p>
+                <ul>
+                    <li>Size of stake</li>
+                    <li>Duration of stake</li>
+                    <li>Overall pool participation</li>
+                </ul>
+                <p>Emissions are intended to be more generous early and taper as the ecosystem matures.</p>
+
+                <h3 id="8-2-play-earn">8.2 Play & Earn Flow</h3>
+                <p>A typical Play & Earn loop:</p>
+                <ol>
+                    <li>Stake PRD to earn base yield and loyalty XP.</li>
+                    <li>Play casino-style games to earn cashback/rakeback in PRD and gain more XP.</li>
+                    <li>Complete missions and quests to receive additional PRD or NFT rewards.</li>
+                    <li>Reach higher VIP tiers to unlock stronger multipliers and better perks.</li>
+                </ol>
+
+                <h3 id="8-3-airdrops">8.3 Airdrops & Community Campaigns</h3>
+                <p>The Airdrops & Community Campaigns pool supports distributions for:</p>
+                <ul>
+                    <li>Early adopters</li>
+                    <li>Testnet / L2 testers</li>
+                    <li>Campaign participants</li>
+                    <li>Community contributors</li>
+                </ul>
+                <p>Each campaign will be announced in advance with clear eligibility, snapshot details (if any), and distribution mechanics.</p>
+            </section>
+
+            <section id="economics">
+                <h2>9. Economic Model & Sustainability</h2>
+                <p>PlayParadice's economic model focuses on sustainability, not short-term hype.</p>
+
+                <h3 id="9-1-revenue">9.1 Revenue Streams</h3>
+                <p>Revenue sources may include:</p>
+                <ul>
+                    <li>House edge/rake on casino-style games</li>
+                    <li>Fees on selected operations (e.g., bridging or withdrawals), if introduced</li>
+                    <li>Ancillary revenue from NFTs, promotions, and co-branded partnerships</li>
+                </ul>
+
+                <h3 id="9-2-sustainability">9.2 Sustainability Goals</h3>
+                <p>The project aims to:</p>
+                <ul>
+                    <li>Avoid excessive inflation of PRD</li>
+                    <li>Tie rewards increasingly to real platform revenue</li>
+                    <li>Maintain attractive yet realistic reward levels as user adoption grows</li>
+                </ul>
+
+                <h3 id="9-3-burns">9.3 PRD Buybacks & Burns</h3>
+                <p>PlayParadice may:</p>
+                <ul>
+                    <li>Allocate a portion of net gaming revenue to buy PRD from the open market</li>
+                    <li>Burn some bought-back tokens to reduce circulating supply</li>
+                    <li>All burns will be carried out transparently, with on-chain proof and periodic reporting.</li>
+                </ul>
+            </section>
+
+            <section id="tech">
+                <h2>10. Architecture & Technology</h2>
+
+                <h3 id="10-1-launch">10.1 Launch Architecture (Ethereum + Backend)</h3>
+                <p>At launch:</p>
+                <ul>
+                    <li>PRD exists as an ERC-20 token on Ethereum.</li>
+                    <li>On-chain staking and vesting contracts manage PRD flows.</li>
+                    <li>Casino game logic and RNG are handled by backend services interfacing with web and Telegram clients.</li>
+                    <li>Financial state (balances, staking, reward distribution) is anchored on-chain wherever practical, while high-speed game logic is optimized at the backend layer.</li>
+                </ul>
+
+                <h3 id="10-2-l2">10.2 PlayParadice L2 / Mainnet</h3>
+                <p>PlayParadice intends to deploy a gaming-optimized Layer-2 or app-chain anchored to Ethereum. This environment will:</p>
+                <ul>
+                    <li>Offer high throughput and low fees for casino-style gaming transactions</li>
+                    <li>Host game contracts, L2-native staking and reward modules, and third-party dApps</li>
+                    <li>Use Ethereum as the settlement and security layer</li>
+                </ul>
+                <p>The choice between optimistic rollup, zk-rollup, or other architectures will follow feasibility and security analysis.</p>
+            </section>
+
+            <section id="security">
+                <h2>11. Security & Fairness</h2>
+
+                <h3 id="11-1-contracts">11.1 Smart Contract Security</h3>
+                <p>Critical smart contracts (PRD token, staking, vesting, bridge, L2 core) will be audited by reputable security firms before or shortly after deployment. Any critical issues found will be remediated prior to or as part of production rollout. Bug bounty programs may encourage responsible reporting of vulnerabilities.</p>
+
+                <h3 id="11-2-rng">11.2 RNG & Game Fairness</h3>
+                <p>RNG (random number generation) is central to fairness.</p>
+                <ul>
+                    <li>Initially, RNG will use secure, industry-standard methods with logged seeds and hashes so independent reviewers can audit fairness.</li>
+                    <li>Over time, the project aims to integrate verifiable randomness solutions, particularly for games deployed on L2.</li>
+                    <li>Documentation will explain how fairness is ensured and verified.</li>
+                </ul>
+
+                <h3 id="11-3-ops">11.3 Operational Security</h3>
+                <p>PlayParadice intends to:</p>
+                <ul>
+                    <li>Use multi-sig wallets for treasury and critical admin roles</li>
+                    <li>Separate user funds from operational funds</li>
+                    <li>Enforce strict access controls on infrastructure</li>
+                    <li>Maintain logging, monitoring, and incident response processes to handle security events</li>
+                </ul>
+            </section>
+
+            <section id="governance">
+                <h2>12. Governance</h2>
+                <p>PlayParadice governance must balance regulatory constraints, security considerations, and community input.</p>
+
+                <h3 id="12-1-vision">12.1 Governance Vision</h3>
+                <p>Governance begins as advisory. PRD holders can signal preferences on non-binding proposals such as:</p>
+                <ul>
+                    <li>Roadmap priorities</li>
+                    <li>Parameter ranges for rewards</li>
+                    <li>Ecosystem initiatives</li>
+                </ul>
+                <p>Over time, and subject to legal clarity, select parameters and treasury allocations may be placed under stronger governance oversight.</p>
+
+                <h3 id="12-2-mechanisms">12.2 Mechanisms</h3>
+                <p>Early governance mechanisms may include:</p>
+                <ul>
+                    <li>Off-chain voting (e.g., snapshot-style) for broad community input</li>
+                    <li>On-chain signaling votes for non-critical decisions</li>
+                </ul>
+                <p>Any move toward binding, on-chain governance over core infrastructure will be cautious and compliant with applicable laws.</p>
+            </section>
+
+            <section id="roadmap">
+                <h2>13. Roadmap (Short, Quarter-Based)</h2>
+                <p>The roadmap assumes PRD is already deployed on Ethereum and begins in Q4 2025.</p>
+
+                <h3>2025 – Foundations</h3>
+                <p><strong>Q4 2025</strong></p>
+                <p>Finalize branding, launch playparadice.io v1, publish litepaper, and open official community channels.</p>
+
+                <h3>2026 – On-Chain Staking & Casino Launch</h3>
+                <p><strong>Q1 2026</strong></p>
+                <p>Launch PRD on-chain staking and public dashboard.</p>
+                <p><strong>Q2 2026</strong></p>
+                <p>Add DEX liquidity & trading; release Telegram mini-casino and begin community competitions.</p>
+                <p><strong>Q3 2026</strong></p>
+                <p>Begin closed alpha of the PlayParadice web casino using PRD; transition to public launch; introduce referral v1 and PRD buybacks.</p>
+                <p><strong>Q4 2026</strong></p>
+                <p>Introduce strategic PRD burns; expand multilingual support; refine VIP and UX.</p>
+
+                <h3>2027 – Advanced Utility & L2 Design</h3>
+                <p><strong>Q1 2027</strong></p>
+                <p>Launch cashback & rakeback engine with tiered VIP system; add multi-currency support while keeping PRD as core rewards token.</p>
+                <p><strong>Q2 2027</strong></p>
+                <p>Implement verifiable RNG for selected games; start formal PlayParadice L2 architecture and token economics design.</p>
+                <p><strong>Q3 2027</strong></p>
+                <p>Launch PlayParadice L2 public testnet with incentivized missions; deploy PRD gamification layer (XP, levels, seasons).</p>
+                <p><strong>Q4 2027</strong></p>
+                <p>Release casino-perks NFT collection; release L2-ready casino contracts and migration tools.</p>
+
+                <h3>2028 – L2 Mainnet, Ecosystem & Governance</h3>
+                <p><strong>Q1 2028</strong></p>
+                <p>Launch PlayParadice L2 mainnet; enable PRD L1↔L2 bridge; introduce L2-based staking and rewards.</p>
+                <p><strong>Q2 2028</strong></p>
+                <p>Open PlayParadice Dev SDK & APIs; integrate PRD and PlayParadice L2 with partner platforms and GameFi dApps.</p>
+                <p><strong>Q3 2028</strong></p>
+                <p>Launch public analytics & risk dashboard; begin PRD governance experiments and explore appropriate CEX listings and licensing expansion.</p>
+            </section>
+
+            <section id="legal">
+                <h2>14. Legal, Compliance & Responsible Gaming</h2>
+                <p>PlayParadice provides casino-style games with real value outcomes using digital assets. In many jurisdictions this activity is regulated as online gambling.</p>
+                <p><strong>The project will:</strong></p>
+                <ul>
+                    <li>Avoid serving users in jurisdictions where such activity is clearly prohibited.</li>
+                    <li>Seek appropriate licensing in jurisdictions that permit online casino-style gaming with crypto integration.</li>
+                    <li>Maintain AML/KYC policies consistent with applicable regulations.</li>
+                </ul>
+                <p><strong>KYC may be required for:</strong></p>
+                <ul>
+                    <li>High-value accounts</li>
+                    <li>Large deposits/withdrawals</li>
+                    <li>Users in specific regions</li>
+                </ul>
+                <p><strong>AML controls include:</strong></p>
+                <ul>
+                    <li>Sanctions screening</li>
+                    <li>Transaction monitoring</li>
+                    <li>Reporting where required by law</li>
+                </ul>
+                <p><strong>Responsible gaming principles include:</strong></p>
+                <ul>
+                    <li>Enforcing age restrictions in accordance with local laws</li>
+                    <li>Providing tools for self-exclusion, deposit/loss limits, and session timeouts</li>
+                    <li>Displaying clear warnings that casino-style gaming carries financial risk and is not an investment strategy</li>
+                    <li>Linking to reputable support organizations for problem gambling</li>
+                </ul>
+            </section>
+
+            <section id="risks">
+                <h2>15. Risk Factors</h2>
+                <p>Participation in PRD and the PlayParadice ecosystem involves significant risks, including but not limited to:</p>
+                <ul>
+                    <li><strong>Market Risk</strong>: Crypto assets are volatile and can lose substantial value.</li>
+                    <li><strong>Regulatory Risk</strong>: Laws affecting online casino-style gaming and tokens may change and impact operations.</li>
+                    <li><strong>Technical Risk</strong>: Bugs, exploits, outages, or failures in contracts or infrastructure may cause losses.</li>
+                    <li><strong>Liquidity Risk</strong>: PRD liquidity may be limited, especially early on, causing slippage.</li>
+                    <li><strong>Adoption Risk</strong>: There is no guarantee that the platform or token will achieve meaningful user adoption or revenue.</li>
+                    <li><strong>Operational Risk</strong>: Failures or misconduct by partners, providers, or internal teams can negatively impact the ecosystem.</li>
+                </ul>
+                <p>Users should conduct their own research and seek professional advice before participating.</p>
+            </section>
+
+            <section id="team">
+                <h2>16. Team & Advisors</h2>
+                <p>PlayParadice is built by a team with experience in:</p>
+                <ul>
+                    <li>Smart contract development</li>
+                    <li>Backend engineering</li>
+                    <li>Casino-style game operations</li>
+                    <li>Product design and UX</li>
+                    <li>Web3 growth and partnerships</li>
+                </ul>
+                <p><strong>Core roles include:</strong></p>
+                <ul>
+                    <li><strong>Lead Architect / Smart Contract Engineer</strong> – designs and maintains PRD staking and future L2 contracts.</li>
+                    <li><strong>Backend & Game Engine Lead</strong> – responsible for games, RNG integration, and risk systems.</li>
+                    <li><strong>Front-End / UX Lead</strong> – builds intuitive interfaces for web and mini-app environments.</li>
+                    <li><strong>Head of Product & Operations</strong> – coordinates roadmap execution and internal processes.</li>
+                    <li><strong>Growth & Partnerships Lead</strong> – manages KOL relationships, marketing campaigns, and ecosystem partnerships.</li>
+                </ul>
+                <p><strong>Advisors will be engaged to support:</strong></p>
+                <ul>
+                    <li>Regulatory strategy</li>
+                    <li>Technical architecture (including L2)</li>
+                    <li>Brand and community growth</li>
+                </ul>
+                <p>Names, profiles, and specific allocation/vesting details for team and advisors will be published as these relationships are finalized.</p>
+            </section>
+
+            <section id="conclusion">
+                <h2>17. Conclusion</h2>
+                <p>PlayParadice is a crypto-native casino gaming ecosystem that seeks to unify:</p>
+                <ul>
+                    <li>A real product,</li>
+                    <li>A utility-focused token (PRD), and</li>
+                    <li>An infrastructure roadmap</li>
+                </ul>
+                <p>into one coherent vision.</p>
+                <p>By anchoring everything around a fixed-supply ERC-20 token that is already deployed, introducing on-chain staking from the outset, and evolving toward a gaming-focused Layer-2, PlayParadice aims to offer a more transparent, programmable, and scalable alternative to typical casino or GameFi projects.</p>
+                <p>The long-term outcome depends on execution quality, regulatory alignment, and community engagement. This whitepaper represents the initial blueprint; ongoing iteration and transparent communication will be essential.</p>
+            </section>
+
+            <section id="official-links">
+                <h2>18. Official Links</h2>
+                <p>Official information sources for PlayParadice and PRD will include:</p>
+                <ul>
+                    <li><strong>Website</strong>: <a href="https://playparadice.io" target="_blank">https://playparadice.io</a></li>
+                    <li><strong>Whitepaper</strong>: this document (v1.0 – Draft)</li>
+                    <li><strong>Telegram</strong>: TBA</li>
+                    <li><strong>Discord</strong>: TBA</li>
+                    <li><strong>X (Twitter)</strong>: TBA</li>
+                    <li><strong>PRD Contract (ERC-20)</strong>: official contract address announced on the website and pinned in official channels</li>
+                </ul>
+                <p>Users should always verify URLs from multiple official announcements to avoid phishing and scam sites.</p>
+            </section>
+        </main>
+    </div>
+
 
     <!--==================================================================-->
     <script src="assets/js/jquery.min.js"></script>
@@ -258,67 +1422,298 @@
     <script src="assets/js/plugin/plugin.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        (function () {
-            const modalEl = document.getElementById('comingSoonModal');
-            if (!modalEl || typeof bootstrap === 'undefined' || !bootstrap.Modal) return;
-            const comingSoonModal = new bootstrap.Modal(modalEl);
-
-            const shouldIgnore = (el) => {
-                return el.closest('.navbar-toggler') || 
-                       el.classList.contains('btn-close') || 
-                       el.classList.contains('accordion-button') ||
-                       el.classList.contains('newsletter-submit-btn') ||
-                       el.closest('.faq-accordion') ||
-                       el.closest('.newsletter-form');
-            };
-
-            const showComingSoon = (event) => {
-                if (shouldIgnore(event.target)) return;
-                event.preventDefault();
-                comingSoonModal.show();
-            };
-
-            document.querySelectorAll('button').forEach((btn) => {
-                btn.addEventListener('click', showComingSoon);
-            });
-
-            document.querySelectorAll('a.cmn-btn').forEach((cta) => {
-                cta.addEventListener('click', showComingSoon);
-            });
-
-            document.querySelectorAll('a.refer-join-btn').forEach((btn) => {
-                btn.addEventListener('click', showComingSoon);
-            });
-        })();
-
-        // Newsletter Form Success Banner
+        // Sidebar Toggle for Mobile
         (function() {
-            const newsletterForm = document.getElementById('newsletterForm');
-            const successBanner = document.getElementById('newsletterSuccessBanner');
-            const emailInput = document.getElementById('newsletterEmail');
-
-            if (!newsletterForm || !successBanner) return;
-
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('whitepaperSidebar');
+            const overlay = document.getElementById('overlayDark');
+            
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                });
                 
-                const email = emailInput.value.trim();
-                
-                if (!email || !email.includes('@')) {
-                    return;
-                }
-
-                successBanner.classList.add('show');
-                emailInput.value = '';
-
-                setTimeout(function() {
-                    successBanner.classList.remove('show');
-                }, 4000);
-            });
+                overlay.addEventListener('click', function() {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                });
+            }
         })();
+
+        // Section Navigation Bar
+        (function() {
+            // Define section order and titles
+            const sectionOrder = [
+                { id: 'key-facts', title: 'Key Facts' },
+                { id: 'executive-summary', title: 'Executive Summary' },
+                { id: 'market-opportunity', title: 'Market & Opportunity' },
+                { id: 'product-overview', title: 'Product Overview' },
+                { id: 'user-journeys', title: 'User Journeys' },
+                { id: 'token-design', title: 'Token Design' },
+                { id: 'utility', title: 'Utility of PRD' },
+                { id: 'rewards', title: 'Rewards & "Play & Earn" Mechanics' },
+                { id: 'economics', title: 'Economic Model & Sustainability' },
+                { id: 'tech', title: 'Architecture & Technology' },
+                { id: 'security', title: 'Security & Fairness' },
+                { id: 'governance', title: 'Governance' },
+                { id: 'roadmap', title: 'Roadmap (Short, Quarter-Based)' },
+                { id: 'legal', title: 'Legal, Compliance & Responsible Gaming' },
+                { id: 'risks', title: 'Risk Factors' },
+                { id: 'team', title: 'Team & Advisors' },
+                { id: 'conclusion', title: 'Conclusion' },
+                { id: 'official-links', title: 'Official Links' }
+            ];
+            
+            // Add navigation bar to each section
+            function addNavigationToSections() {
+                const sections = document.querySelectorAll('.whitepaper-content section');
+                sections.forEach((section, index) => {
+                    const sectionId = section.getAttribute('id');
+                    const sectionIndex = sectionOrder.findIndex(s => s.id === sectionId);
+                    
+                    if (sectionIndex !== -1) {
+                        const navBar = document.createElement('div');
+                        navBar.className = 'section-nav';
+                        navBar.innerHTML = `
+                            <a href="#" class="section-nav-btn prev" data-section-index="${sectionIndex}">
+                                <span class="nav-arrow">←</span>
+                                <div>
+                                    <div class="nav-label">Previous</div>
+                                    <div class="nav-title">${sectionIndex > 0 ? sectionOrder[sectionIndex - 1].title : ''}</div>
+                                </div>
+                            </a>
+                            <a href="#" class="section-nav-btn next" data-section-index="${sectionIndex}">
+                                <span class="nav-arrow">→</span>
+                                <div>
+                                    <div class="nav-label">Next</div>
+                                    <div class="nav-title">${sectionIndex < sectionOrder.length - 1 ? sectionOrder[sectionIndex + 1].title : ''}</div>
+                                </div>
+                            </a>
+                        `;
+                        
+                        // Disable buttons if first/last section
+                        const prevBtn = navBar.querySelector('.prev');
+                        const nextBtn = navBar.querySelector('.next');
+                        
+                        if (sectionIndex === 0) {
+                            prevBtn.classList.add('disabled');
+                            prevBtn.querySelector('.nav-title').textContent = '';
+                        }
+                        if (sectionIndex === sectionOrder.length - 1) {
+                            nextBtn.classList.add('disabled');
+                            nextBtn.querySelector('.nav-title').textContent = '';
+                        }
+                        
+                        // Add click handlers
+                        prevBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            if (sectionIndex > 0) {
+                                navigateToSection(sectionOrder[sectionIndex - 1].id);
+                            }
+                        });
+                        
+                        nextBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            if (sectionIndex < sectionOrder.length - 1) {
+                                navigateToSection(sectionOrder[sectionIndex + 1].id);
+                            }
+                        });
+                        
+                        section.appendChild(navBar);
+                    }
+                });
+            }
+            
+            // Navigate to a specific section (works with or without sidebar)
+            window.navigateToSection = function(sectionId) {
+                // Check if we're on mobile (sidebar hidden)
+                const isMobile = window.innerWidth <= 991;
+                
+                if (isMobile) {
+                    // Direct navigation for mobile
+                    if (window.showSection) {
+                        window.showSection(sectionId);
+                    }
+                } else {
+                    // Use sidebar link for desktop
+                    const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+                    const targetLink = Array.from(sidebarLinks).find(link => {
+                        const href = link.getAttribute('href');
+                        return href === '#' + sectionId;
+                    });
+                    
+                    if (targetLink) {
+                        targetLink.click();
+                    } else if (window.showSection) {
+                        // Fallback to direct navigation
+                        window.showSection(sectionId);
+                    }
+                }
+            };
+            
+            // Initialize navigation bars
+            addNavigationToSections();
+        })();
+
+        // Section Visibility Control
+        (function() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            const sections = document.querySelectorAll('.whitepaper-content section');
+            
+            // Map sidebar links to their main sections
+            const sectionMap = {
+                'key-facts': 'key-facts',
+                'executive-summary': 'executive-summary',
+                'market-opportunity': 'market-opportunity',
+                '3-1-online-gaming': 'market-opportunity',
+                '3-2-crypto-casino': 'market-opportunity',
+                '3-3-opportunity': 'market-opportunity',
+                'product-overview': 'product-overview',
+                '4-1-web-casino': 'product-overview',
+                '4-2-telegram-casino': 'product-overview',
+                '4-3-prd-token': 'product-overview',
+                '4-4-l2': 'product-overview',
+                'user-journeys': 'user-journeys',
+                '5-1-player': 'user-journeys',
+                '5-2-holder': 'user-journeys',
+                'token-design': 'token-design',
+                '6-1-token-params': 'token-design',
+                '6-2-allocation': 'token-design',
+                '6-3-vesting': 'token-design',
+                '6-4-sale': 'token-design',
+                'utility': 'utility',
+                '7-1-staking': 'utility',
+                '7-2-cashback': 'utility',
+                '7-3-vip': 'utility',
+                '7-4-referral': 'utility',
+                '7-5-wagering': 'utility',
+                '7-6-l2-role': 'utility',
+                'rewards': 'rewards',
+                '8-1-staking-rewards': 'rewards',
+                '8-2-play-earn': 'rewards',
+                '8-3-airdrops': 'rewards',
+                'economics': 'economics',
+                '9-1-revenue': 'economics',
+                '9-2-sustainability': 'economics',
+                '9-3-burns': 'economics',
+                'tech': 'tech',
+                '10-1-launch': 'tech',
+                '10-2-l2': 'tech',
+                'security': 'security',
+                '11-1-contracts': 'security',
+                '11-2-rng': 'security',
+                '11-3-ops': 'security',
+                'governance': 'governance',
+                '12-1-vision': 'governance',
+                '12-2-mechanisms': 'governance',
+                'roadmap': 'roadmap',
+                'legal': 'legal',
+                'risks': 'risks',
+                'team': 'team',
+                'conclusion': 'conclusion',
+                'official-links': 'official-links'
+            };
+            
+            // Function to show a specific section and hide others
+            function showSection(sectionId) {
+                // Hide all sections first (including key-facts)
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    section.classList.remove('initial-load'); // Remove initial-load class
+                });
+                
+                // Show the selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    // Use requestAnimationFrame for smooth transition
+                    requestAnimationFrame(() => {
+                        targetSection.classList.add('active');
+                        // Scroll to top of content area smoothly
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: document.querySelector('.whitepaper-content').offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    });
+                }
+            }
+            
+            // Make showSection globally available for mobile navigation
+            window.showSection = showSection;
+            
+            // Function to get main section ID from any subsection ID
+            function getMainSectionId(id) {
+                return sectionMap[id] || id;
+            }
+            
+            // Initialize: Show only section 1 on page load
+            function initializeSections() {
+                sections.forEach((section, index) => {
+                    if (index === 0) {
+                        // First section (Key Facts) should be visible on initial load
+                        section.classList.add('active');
+                        section.classList.add('initial-load');
+                    } else {
+                        // All other sections should be hidden
+                        section.classList.remove('active');
+                        section.classList.remove('initial-load');
+                    }
+                });
+                
+                // Set first sidebar link as active
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href === '#key-facts') {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Handle sidebar link clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        const targetId = href.substring(1);
+                        const mainSectionId = getMainSectionId(targetId);
+                        
+                        // Update active link
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Show the main section
+                        showSection(mainSectionId);
+                        
+                        // If clicking a subsection, scroll to it after showing the main section
+                        if (targetId !== mainSectionId) {
+                            setTimeout(() => {
+                                const subsection = document.getElementById(targetId);
+                                if (subsection) {
+                                    subsection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }
+                            }, 500);
+                        }
+                        
+                        // Close sidebar on mobile after click
+                        if (window.innerWidth < 992) {
+                            const sidebar = document.getElementById('whitepaperSidebar');
+                            const overlay = document.getElementById('overlayDark');
+                            if (sidebar) sidebar.classList.remove('open');
+                            if (overlay) overlay.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Initialize on page load
+            initializeSections();
+        })();
+
     </script>
 </body>
 
 </html>
-
