@@ -84,7 +84,9 @@
     <!-- end preloader -->
 
     <!-- Scroll To Top Start-->
-    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <a href="javascript:void(0)" class="scrollToTop" aria-label="Scroll to top">
+        <span class="scroll-icon">⬆⬆</span>
+    </a>
     <!-- Scroll To Top End -->
 
     <!-- header-section start -->
@@ -279,6 +281,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <!-- Mobile Only Image Section -->
+                                <div class="mobile-image-section">
+                                    <div class="mobile-sec-img position-relative">
+                                        <img src="assets/images/about-us-illus.png" class="mobile-bg-img" alt="image">
+                                        <div class="mobile-popup-area">
+                                            <div class="magnific-area position-relative d-flex align-items-center justify-content-around">
+                                                <a class="mfp-iframe popupvideo position-absolute" href="https://www.youtube.com/watch?v=Djz8Nc0Qxwk">
+                                                    <img src="assets/images/icon/play-icon.png" alt="icon">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -400,6 +416,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- Animated Background Image at Bottom -->
+            <div class="about-us-bottom-bg">
+                <img src="assets/images/popular-game-item.png" alt="background decoration">
             </div>
         </div>
     </section>
@@ -979,12 +999,12 @@
         <div class="overlay pt-120 pb-120">
             <div class="container wow fadeInUp">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-1">
+                    <div class="col-lg-6 order-lg-1 order-2">
                         <div class="refer-banner-image">
                             <!-- Background illustration is handled by CSS -->
                         </div>
                     </div>
-                    <div class="col-lg-6 order-lg-2">
+                    <div class="col-lg-6 order-lg-2 order-1">
                         <div class="refer-banner-content">
                             <h6 class="refer-subtitle-new">Earn More with Referrals</h6>
                             <h2 class="refer-title">Invite. Stake. Earn.</h2>
@@ -1113,8 +1133,8 @@
                         <form action="#" class="newsletter-form">
                             <div class="form-group input-area d-flex align-items-center">
                                 <input type="email" placeholder="Enter your email address" required>
-                                <button type="submit" class="btn-area">
-                                    <i class="fas fa-paper-plane"></i>
+                                <button type="submit" class="btn-area" aria-label="Send email">
+                                    <span class="send-icon">➤</span>
                                 </button>
                             </div>
                         </form>
