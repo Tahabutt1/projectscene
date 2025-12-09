@@ -34,6 +34,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -401,6 +402,18 @@ label {
   }
   .mb-60 {
     margin-bottom: 40px;
+  }
+  
+  /* About Us Section - Tablet Responsive */
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .section-header .title {
+    font-size: 36px;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .intro-text {
+    font-size: 17px;
+    padding: 22px;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .lottery-content {
+    padding-left: 0;
   }
   .mt-60 {
     margin-top: 40px;
@@ -1055,9 +1068,11 @@ label {
 .banner-section .overlay {
   background-image: url(../images/index-banner-bg.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   position: relative;
   background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 .banner-section .overlay .banner-content {
   padding: 195px 0 160px;
@@ -1071,113 +1086,6 @@ label {
   overflow: hidden;
 }
 
-/* Hero Animations - Floating Coins and Dice */
-.hero-animations {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.floating-coin,
-.floating-dice {
-  position: absolute;
-  font-size: 48px;
-  opacity: 0.8;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  animation: coinFloat 5s ease-in-out infinite alternate;
-}
-
-.floating-dice {
-  font-size: 52px;
-  animation: coinFloat 6s ease-in-out infinite alternate;
-}
-
-/* Coin Positions */
-.coin-1 {
-  top: 15%;
-  left: 10%;
-  animation-delay: 0s;
-  animation-duration: 5s;
-}
-
-.coin-2 {
-  top: 45%;
-  right: 15%;
-  animation-delay: 1.5s;
-  animation-duration: 6s;
-}
-
-.coin-3 {
-  top: 70%;
-  left: 20%;
-  animation-delay: 3s;
-  animation-duration: 5.5s;
-}
-
-/* Dice Positions */
-.dice-1 {
-  top: 25%;
-  right: 25%;
-  animation-delay: 0.5s;
-  animation-duration: 6.5s;
-}
-
-.dice-2 {
-  top: 55%;
-  left: 5%;
-  animation-delay: 2s;
-  animation-duration: 5.8s;
-}
-
-.dice-3 {
-  top: 80%;
-  right: 10%;
-  animation-delay: 3.5s;
-  animation-duration: 6.2s;
-}
-
-/* Coin Float Animation - Left and Right Movement */
-@keyframes coinFloat {
-  0% {
-    transform: translateX(-40px) translateY(0) rotate(-15deg);
-  }
-  25% {
-    transform: translateX(20px) translateY(-20px) rotate(10deg);
-  }
-  50% {
-    transform: translateX(50px) translateY(-10px) rotate(-10deg);
-  }
-  75% {
-    transform: translateX(20px) translateY(-25px) rotate(15deg);
-  }
-  100% {
-    transform: translateX(-40px) translateY(0) rotate(-15deg);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .floating-coin {
-    font-size: 36px;
-  }
-  
-  .floating-dice {
-    font-size: 40px;
-  }
-  
-  .coin-1,
-  .coin-2,
-  .coin-3,
-  .dice-1,
-  .dice-2,
-  .dice-3 {
-    opacity: 0.6;
-  }
-}
 .banner-section.inner-banner .main-content .breadcrumb-area {
   margin-top: 10px;
 }
@@ -1577,6 +1485,86 @@ label {
   background-size: auto;
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced About Us Section Background */
+.popular-game#what-is-playparadice {
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(122, 97, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(248, 174, 61, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(161, 255, 0, 0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #0f0528 0%, #1a0d3a 25%, #1f1147 50%, #1a0d3a 75%, #0f0528 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  animation: backgroundShift 15s ease-in-out infinite;
+  position: relative;
+}
+
+.popular-game#what-is-playparadice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(161, 255, 0, 0.03) 2px,
+      rgba(161, 255, 0, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(122, 97, 255, 0.03) 2px,
+      rgba(122, 97, 255, 0.03) 4px
+    );
+  pointer-events: none;
+  opacity: 0.6;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+.popular-game#what-is-playparadice::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(161, 255, 0, 0.1) 0%, transparent 70%);
+  animation: rotateGlow 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 30% 70%, 0% 0%;
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .popular-game .prd-vision-alt {
   background: linear-gradient(135deg, rgba(27, 12, 67, 0.95), rgba(19, 9, 45, 0.95));
@@ -1970,27 +1958,75 @@ label {
 }
 .popular-game .about-us-content {
   position: relative;
-  padding: 40px 0;
+  padding: 60px 0;
+  z-index: 1;
 }
 .popular-game .about-us-content .shape-item {
   position: absolute;
   right: 0;
-  z-index: -1;
+  top: 0;
+  z-index: 0;
+  transform: translateY(-20px);
+  opacity: 0.8;
 }
 .popular-game .about-us-content .shape-area {
   position: absolute;
-  right: calc(5% + 5px);
-  top: calc(5% + 40px);
-  z-index: -1;
+  right: 20px;
+  top: 20px;
+  z-index: 0;
+  opacity: 0.8;
 }
 .popular-game .about-us-content .lottery-content {
   padding-left: 20px;
+  position: relative;
+  z-index: 2;
 }
-.popular-game .about-us-content .lottery-content .intro-text {
-  color: rgba(255, 255, 255, 0.85);
+
+.popular-game .about-us-content .lottery-content .section-header {
+  position: relative;
+}
+
+.popular-game .about-us-content .lottery-content .section-header .sub-title {
+  color: var(--primary-color);
+  font-weight: 600;
   font-size: 16px;
-  line-height: 1.8;
-  margin: 20px 0 28px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px rgba(161, 255, 0, 0.4);
+}
+
+.popular-game .about-us-content .lottery-content .section-header .title {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(161, 255, 0, 0.2);
+  letter-spacing: -0.5px;
+}
+
+.popular-game .about-us-content .lottery-content .intro-text {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  line-height: 1.9;
+  margin: 24px 0 32px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 24px 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.popular-game .about-us-content .lottery-content .intro-text:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(161, 255, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(161, 255, 0, 0.1);
+  transform: translateY(-2px);
 }
 .popular-game .about-us-content .lottery-content .feature-list {
   list-style: none;
@@ -2003,45 +2039,84 @@ label {
 .popular-game .about-us-content .lottery-content .feature-list li {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 18px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(27, 12, 67, 0.7), rgba(19, 9, 45, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
+
+.popular-game .about-us-content .lottery-content .feature-list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(161, 255, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
 .popular-game .about-us-content .lottery-content .feature-list li:hover {
-  transform: translateX(6px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(161, 255, 0, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateX(8px) translateY(-2px);
+  background: linear-gradient(135deg, rgba(35, 18, 80, 0.85), rgba(25, 12, 55, 0.85));
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(161, 255, 0, 0.2);
+}
+
+.popular-game .about-us-content .lottery-content .feature-list li:hover::before {
+  left: 100%;
 }
 .popular-game .about-us-content .lottery-content .feature-icon {
-  font-size: 28px;
+  font-size: 36px;
   line-height: 1;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(161, 255, 0, 0.3));
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(161, 255, 0, 0.4));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(161, 255, 0, 0.1);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(161, 255, 0, 0.2);
 }
+
 .popular-game .about-us-content .lottery-content .feature-list li:hover .feature-icon {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.2) rotate(8deg);
+  background: rgba(161, 255, 0, 0.2);
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 0 20px rgba(161, 255, 0, 0.4);
+  filter: drop-shadow(0 6px 12px rgba(161, 255, 0, 0.6));
 }
 .popular-game .about-us-content .lottery-content .feature-list li div {
   flex: 1;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  line-height: 1.8;
   transition: color 0.3s ease;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+
 .popular-game .about-us-content .lottery-content .feature-list li:hover div {
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
 }
+
 .popular-game .about-us-content .lottery-content .feature-list li strong {
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 700;
   display: block;
-  margin-bottom: 6px;
-  font-size: 16px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  text-shadow: 0 0 15px rgba(161, 255, 0, 0.5);
+  letter-spacing: 0.3px;
 }
 .popular-game .about-us-content .sec-img {
   position: relative;
@@ -2049,7 +2124,7 @@ label {
 .popular-game .about-us-content .popup-area {
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 10;
 }
 .popular-game .about-us-content .magnific-area {
@@ -2116,27 +2191,59 @@ label {
 }
 .popular-game .about-us-content .counter-area .single-box {
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(43, 24, 89, 0.6), rgba(25, 11, 63, 0.6));
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, rgba(43, 24, 89, 0.8), rgba(25, 11, 63, 0.8));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
 }
+
+.popular-game .about-us-content .counter-area .single-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(161, 255, 0, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 .popular-game .about-us-content .counter-area .single-box:hover {
-  transform: translateY(-4px);
-  border-color: rgba(161, 255, 0, 0.3);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(161, 255, 0, 0.2);
+  background: linear-gradient(135deg, rgba(50, 28, 100, 0.9), rgba(30, 15, 70, 0.9));
 }
+
+.popular-game .about-us-content .counter-area .single-box:hover::before {
+  opacity: 1;
+}
+
 .popular-game .about-us-content .counter-area .single-box h3 {
   color: var(--primary-color);
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(161, 255, 0, 0.5);
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
 }
+
 .popular-game .about-us-content .counter-area .single-box p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
   margin: 0;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 .popular-game .prd-vision {
   background: linear-gradient(135deg, rgba(20, 8, 54, 0.95), rgba(26, 18, 69, 0.95));
@@ -2258,6 +2365,40 @@ label {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Color filters to avoid copyright issues - each card has unique color transformation */
+.popular-game .games-carousel .single:nth-child(1) .card-front img {
+  filter: hue-rotate(45deg) saturate(1.3) brightness(1.1) contrast(1.05);
+}
+
+.popular-game .games-carousel .single:nth-child(2) .card-front img {
+  filter: hue-rotate(-30deg) saturate(1.4) brightness(1.15) contrast(1.1);
+}
+
+.popular-game .games-carousel .single:nth-child(3) .card-front img {
+  filter: hue-rotate(120deg) saturate(1.2) brightness(1.05) contrast(1.08);
+}
+
+.popular-game .games-carousel .single:nth-child(4) .card-front img {
+  filter: hue-rotate(180deg) saturate(1.35) brightness(1.12) contrast(1.06);
+}
+
+.popular-game .games-carousel .single:nth-child(5) .card-front img {
+  filter: hue-rotate(-60deg) saturate(1.25) brightness(1.08) contrast(1.12);
+}
+
+.popular-game .games-carousel .single:nth-child(6) .card-front img {
+  filter: hue-rotate(90deg) saturate(1.4) brightness(1.2) contrast(1.04);
+}
+
+.popular-game .games-carousel .single:nth-child(7) .card-front img {
+  filter: hue-rotate(240deg) saturate(1.3) brightness(1.1) contrast(1.07);
+}
+
+.popular-game .game-card:hover .card-front img {
+  filter: brightness(1.2) saturate(1.1);
 }
 .popular-game .game-card .card-back {
   background: linear-gradient(140deg, rgba(111, 60, 214, 0.9), rgba(22, 10, 58, 0.95));
@@ -2318,6 +2459,30 @@ label {
   gap: 18px;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
+.features .single-box .icon-box {
+  text-align: center;
+  flex-shrink: 0;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.features .single-box .icon-box span {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.features .single-box ul {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 120px;
+  min-height: 120px;
+}
 .features .cus-mar > [class*=col-] {
   display: flex;
 }
@@ -2329,8 +2494,13 @@ label {
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
   border-color: rgba(255, 255, 255, 0.12);
 }
+.features .single-box .icon-box h3,
 .features .single-box .icon-box h4 {
   margin: 0;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 1.3;
+  word-spacing: normal;
 }
 .features .single-box ul {
   list-style: disc;
@@ -2356,49 +2526,111 @@ label {
 
 .how-works .single-box {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 280px;
+}
+.how-works .single-box .thumb {
+  flex-shrink: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.how-works .single-box .thumb img {
+  max-height: 80px;
+  width: auto;
+}
+.how-works .single-box .text-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
 }
 .how-works .single-box h5 {
-  margin: 33px 0 20px;
+  margin: 0 0 15px 0;
+  flex-shrink: 0;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 .how-works .single-box p {
   color: var(--para-color);
-  margin: auto;
-  width: 50%;
+  margin: 0;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.6;
+  min-height: 115px;
 }
-.how-works .single-box.mid {
+.how-works .row.cus-mar {
+  display: flex;
+  align-items: stretch;
+}
+.how-works .row.cus-mar > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+.how-works .single-box {
   position: relative;
 }
-.how-works .single-box.mid::before, .how-works .single-box.mid::after {
+/* Arrow between step 1 and step 2 */
+.how-works .row.cus-mar > [class*="col-"]:nth-child(1) .single-box::after {
   content: "";
   position: absolute;
   background-image: url(../images/icon/how-works-arrow-1.png);
-  background-size: auto;
+  background-size: contain;
   background-repeat: no-repeat;
-  width: 157px;
-  height: 35px;
-  z-index: -1;
-  left: -20%;
-  bottom: 50%;
+  background-position: center;
+  width: 80px;
+  height: 30px;
+  z-index: 1;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
+/* Arrow between step 2 and step 3 */
 .how-works .single-box.mid::after {
-  background-image: url(../images/icon/how-works-arrow-2.png);
-  left: initial;
-  right: -20%;
-}
-.how-works .single-box.last-step {
-  position: relative;
-}
-.how-works .single-box.last-step::before {
   content: "";
   position: absolute;
-  background-image: url(../images/icon/how-works-arrow-2.png);
-  background-size: auto;
+  background-image: url(../images/icon/how-works-arrow-1.png);
+  background-size: contain;
   background-repeat: no-repeat;
-  width: 157px;
-  height: 35px;
-  z-index: -1;
-  left: -28%;
-  top: 38%;
+  background-position: center;
+  width: 80px;
+  height: 30px;
+  z-index: 1;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.how-works .single-box.mid::before {
+  display: none;
+}
+/* Arrow between step 3 and step 4 */
+.how-works .row.cus-mar > [class*="col-"]:nth-child(3) .single-box::after {
+  content: "";
+  position: absolute;
+  background-image: url(../images/icon/how-works-arrow-1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80px;
+  height: 30px;
+  z-index: 1;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.how-works .single-box.last-step::before {
+  display: none;
 }
 
 .drops-wins {
@@ -2447,84 +2679,140 @@ label {
   border-left: 1px solid rgb(97, 69, 137);
   padding: 20px;
 }
+.drops-wins .section-header {
+  margin-bottom: 50px;
+}
+.drops-wins .section-header .section-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  margin-top: 15px;
+  line-height: 1.6;
+}
 .drops-wins .core-feature-cards {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  margin-top: 0;
+}
+.drops-wins .core-feature-cards .row {
+  margin: 0;
 }
 .drops-wins .core-feature-card {
   position: relative;
-  padding: 48px 16px 14px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(43, 24, 89, 0.9), rgba(25, 11, 63, 0.9));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
-  min-height: 170px;
+  padding: 60px 30px 30px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(43, 24, 89, 0.95), rgba(25, 11, 63, 0.95));
+  border: 2px solid rgba(161, 255, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(161, 255, 0, 0.1) inset,
+              0 0 60px rgba(122, 97, 255, 0.15);
+  min-height: 320px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  backdrop-filter: blur(10px);
+  margin-bottom: 60px;
 }
 .drops-wins .core-feature-card::before {
   content: "";
   position: absolute;
-  top: -44px;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;
-  height: 120px;
-  background: var(--section-color);
-  border-radius: 0 0 90px 90px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) inset;
+  width: 160px;
+  height: 140px;
+  background: radial-gradient(ellipse at center, rgba(161, 255, 0, 0.15), transparent 70%);
+  border-radius: 0 0 100px 100px;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+.drops-wins .core-feature-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(161, 255, 0, 0.05), rgba(122, 97, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
   z-index: 1;
 }
 .drops-wins .core-feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 
+              0 0 40px rgba(161, 255, 0, 0.2) inset,
+              0 0 80px rgba(122, 97, 255, 0.25);
+  border-color: rgba(161, 255, 0, 0.3);
+}
+.drops-wins .core-feature-card:hover::before {
+  background: radial-gradient(ellipse at center, rgba(161, 255, 0, 0.25), transparent 70%);
+  transform: translateX(-50%) scale(1.1);
+}
+.drops-wins .core-feature-card:hover::after {
+  opacity: 1;
 }
 .drops-wins .core-feature-card .icon-badge {
   position: absolute;
-  top: -6px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 68px;
-  height: 68px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  display: grid;
-  place-items: center;
-  font-size: 26px;
-  z-index: 2;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(145deg, rgba(161, 255, 0, 0.2), rgba(122, 97, 255, 0.2));
+  border: 3px solid rgba(161, 255, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  z-index: 3;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(161, 255, 0, 0.3);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+.drops-wins .core-feature-card:hover .icon-badge {
+  transform: translateX(-50%) scale(1.1) rotate(5deg);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(161, 255, 0, 0.4);
+  border-color: rgba(161, 255, 0, 0.6);
+  top: -42px;
 }
 .drops-wins .core-feature-card .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-size: 12px;
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   z-index: 2;
-  margin-top: 6px;
+  margin-top: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(161, 255, 0, 0.5);
 }
 .drops-wins .core-feature-card h5 {
-  margin: 0;
-  font-size: 16px;
+  margin: 8px 0 0 0;
+  font-size: 20px;
+  font-weight: 700;
   position: relative;
   z-index: 2;
+  text-align: center;
+  color: #fff;
 }
 .drops-wins .core-feature-card p {
-  margin: 0;
-  color: #dfe3ff;
-  line-height: 1.5;
-  font-size: 14px;
+  margin: 12px 0 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 15px;
   position: relative;
   z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+.drops-wins .core-feature-cards .row .col-lg-6:nth-child(n+3) .core-feature-card {
+  margin-bottom: 0;
 }
 
 /* Roadmap Section - Interactive Design */
@@ -2536,13 +2824,113 @@ label {
   overflow: hidden;
 }
 
+.roadmap-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 5, 35, 0.8), rgba(20, 8, 45, 0.85));
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Moon Glow Effect - Top Right */
+.roadmap-section::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 30%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  animation: moonGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.3),
+              0 0 120px rgba(255, 255, 255, 0.2),
+              0 0 160px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+
+.roadmap-section .overlay {
+  position: relative;
+  z-index: 2;
+}
+
 /* Background Animated Dots */
 .roadmap-bg-dots {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* Coin and Star Glow Effects - Bottom */
+.roadmap-bg-dots::before {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  left: 15%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(255, 215, 0, 0.3) 30%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(35px);
+  animation: coinGlow 2.5s ease-in-out infinite;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.4),
+              0 0 100px rgba(255, 215, 0, 0.3),
+              0 0 140px rgba(255, 215, 0, 0.2);
+}
+
+.roadmap-bg-dots::after {
+  content: "";
+  position: absolute;
+  bottom: 8%;
+  right: 20%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 30%, transparent 70%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  filter: blur(30px);
+  animation: starGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.4),
+              0 0 90px rgba(255, 255, 255, 0.3),
+              0 0 130px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes coinGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15) rotate(180deg);
+  }
+}
+
+@keyframes starGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
 }
 
 .roadmap-dot {
@@ -2744,6 +3132,12 @@ label {
 .roadmap-content-area {
   position: relative;
   min-height: 400px;
+  background: rgba(15, 5, 35, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .roadmap-phase-content {
@@ -2935,9 +3329,9 @@ label {
 }
 
 .roadmap-item-content {
-  background: rgba(27, 12, 67, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 5, 35, 0.75);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 18px 20px;
   display: flex;
@@ -2945,13 +3339,89 @@ label {
   gap: 14px;
   transition: all 0.3s ease;
   min-height: 70px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.roadmap-item-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.roadmap-item-card.roadmap-item-cyan .roadmap-item-content {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.roadmap-item-card.roadmap-item-purple .roadmap-item-content {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(161, 255, 0, 0.15);
+  border-color: rgba(161, 255, 0, 0.2);
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.roadmap-item-card.roadmap-item-orange .roadmap-item-content {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(255, 107, 53, 0.15);
+  border-color: rgba(255, 107, 53, 0.2);
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.roadmap-item-card.roadmap-item-green .roadmap-item-content {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.2);
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
 }
 
 .roadmap-item-card:hover .roadmap-item-content {
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   transform: translateY(-2px);
-  background: rgba(27, 12, 67, 0.65);
+  background: rgba(15, 5, 35, 0.85);
+}
+
+.roadmap-item-card.roadmap-item-cyan:hover .roadmap-item-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(0, 212, 255, 0.25);
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+.roadmap-item-card.roadmap-item-purple:hover .roadmap-item-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(161, 255, 0, 0.25);
+  border-color: rgba(161, 255, 0, 0.4);
+}
+
+.roadmap-item-card.roadmap-item-orange:hover .roadmap-item-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(255, 107, 53, 0.25);
+  border-color: rgba(255, 107, 53, 0.4);
+}
+
+.roadmap-item-card.roadmap-item-green:hover .roadmap-item-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(0, 255, 136, 0.25);
+  border-color: rgba(0, 255, 136, 0.4);
 }
 
 .roadmap-item-check {
@@ -2990,11 +3460,24 @@ label {
 }
 
 .roadmap-item-content p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 14px;
   line-height: 1.75;
   margin: 0;
   font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.roadmap-item-card.roadmap-item-purple .roadmap-item-content p,
+.roadmap-item-card.roadmap-item-orange .roadmap-item-content p,
+.roadmap-item-card.roadmap-item-green .roadmap-item-content p {
+  font-size: 13px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Hint Text */
@@ -3132,180 +3615,158 @@ label {
 
 .refer-section {
   position: relative;
-  background: linear-gradient(135deg, rgba(27, 12, 67, 0.98), rgba(19, 9, 45, 0.95));
-}
-.refer-section .shape-area {
-  position: absolute;
-  right: 8%;
-  top: 35%;
-  z-index: -1;
-}
-.refer-section .section-header .refer-intro {
-  max-width: 800px;
-  margin: 20px auto 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 17px;
-  line-height: 1.7;
-}
-.refer-content-wrapper {
-  position: relative;
-  z-index: 1;
-}
-.refer-step-card {
-  background: linear-gradient(135deg, rgba(43, 24, 89, 0.95), rgba(25, 11, 63, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 32px 28px;
-  height: 100%;
-  text-align: center;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  position: relative;
   overflow: hidden;
 }
-.refer-step-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), rgba(161, 255, 0, 0.5));
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+
+.refer-section .overlay {
+  position: relative;
 }
-.refer-step-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(161, 255, 0, 0.4);
-  box-shadow: 0 16px 40px rgba(161, 255, 0, 0.2);
+
+.refer-banner-image {
+  position: relative;
+  min-height: 500px;
+  background-image: url(../images/refer-illus.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  z-index: 1;
 }
-.refer-step-card:hover::before {
-  transform: scaleX(1);
+
+.refer-banner-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 40px;
 }
-.refer-step-card .step-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
-  display: inline-block;
-  filter: drop-shadow(0 4px 8px rgba(161, 255, 0, 0.3));
-  transition: transform 0.3s ease;
-}
-.refer-step-card:hover .step-icon {
-  transform: scale(1.15) rotate(5deg);
-}
-.refer-step-card h4 {
+
+.refer-subtitle-new {
   color: var(--primary-color);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 14px;
-  text-transform: none;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
-.refer-step-card p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
-  line-height: 1.7;
-  margin: 0;
-}
-.refer-highlights-card,
-.refer-notes-card {
-  background: linear-gradient(135deg, rgba(27, 12, 67, 0.95), rgba(19, 9, 45, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 32px;
-  height: 100%;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-.refer-highlights-card:hover,
-.refer-notes-card:hover {
-  border-color: rgba(161, 255, 0, 0.3);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-}
-.refer-highlights-card .card-title,
-.refer-notes-card .card-title {
-  color: var(--primary-color);
-  font-size: 24px;
+
+.refer-title {
+  color: #fff;
+  font-size: 42px;
   font-weight: 700;
-  margin-bottom: 24px;
-  text-transform: none;
-  border-bottom: 2px solid rgba(161, 255, 0, 0.2);
-  padding-bottom: 12px;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
-.highlights-list {
+
+.refer-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 550px;
+}
+
+.referral-steps {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 24px 0;
 }
-.highlights-list li {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  align-items: flex-start;
+
+.referral-steps li {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  padding-left: 32px;
+  position: relative;
 }
-.highlights-list li:last-child {
+
+.referral-steps li:last-child {
   margin-bottom: 0;
 }
-.highlights-list .highlight-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, var(--primary-color), rgba(161, 255, 0, 0.7));
+
+.referral-steps li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--primary-color), rgba(161, 255, 0, 0.8));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--body-color);
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(161, 255, 0, 0.3);
+  color: #0c051a;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(161, 255, 0, 0.4);
 }
-.highlights-list li div strong {
-  display: block;
-  color: var(--bs-white);
-  font-size: 17px;
+
+.referral-steps li strong {
+  color: var(--primary-color);
   font-weight: 600;
-  margin-bottom: 6px;
 }
-.highlights-list li div p {
-  color: rgba(255, 255, 255, 0.75);
+
+.refer-note {
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   line-height: 1.6;
-  margin: 0;
+  margin: 24px 0 0 0;
+  font-style: italic;
 }
-.notes-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+.refer-btn-area {
+  margin-top: 40px;
 }
-.notes-list li {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
-  line-height: 1.8;
-  margin-bottom: 18px;
-  padding-left: 24px;
-  position: relative;
+
+.refer-join-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, var(--primary-color), rgba(161, 255, 0, 0.8));
+  border: 2px solid #ffd700;
+  border-radius: 50px;
+  color: #0c051a;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(161, 255, 0, 0.4),
+              0 4px 15px rgba(0, 0, 0, 0.3);
 }
-.notes-list li:last-child {
-  margin-bottom: 0;
+
+.refer-join-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(161, 255, 0, 0.6),
+              0 6px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(161, 255, 0, 0.9), var(--primary-color));
+  color: #0c051a;
 }
-.notes-list li::before {
-  content: "⚠";
-  position: absolute;
-  left: 0;
-  color: rgba(255, 200, 0, 0.8);
-  font-size: 18px;
-}
+
+
 @media (max-width: 991px) {
-  .refer-step-card,
-  .refer-highlights-card,
-  .refer-notes-card {
-    margin-bottom: 24px;
+  .refer-title {
+    font-size: 32px;
   }
-  .refer-step-card {
-    padding: 28px 24px;
+  .refer-description {
+    font-size: 15px;
   }
-  .refer-highlights-card,
-  .refer-notes-card {
-    padding: 28px;
+  .referral-steps li {
+    font-size: 15px;
+  }
+  .refer-banner-image {
+    margin-bottom: 40px;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+  .refer-banner-content {
+    padding-left: 0;
+    text-align: left;
+  }
+  .refer-description {
+    max-width: 100%;
   }
 }
 
@@ -4437,11 +4898,11 @@ label {
   .banner-section .overlay {
     background-size: 125% 100%;
   }
-  .how-works .single-box.mid::before {
-    left: -26%;
-  }
-  .how-works .single-box.mid::after {
-    right: -26%;
+  /* Adjust arrow positioning for medium screens */
+  .how-works .single-box::after {
+    width: 60px;
+    height: 25px;
+    right: -30px;
   }
   .counter-section .single-box {
     background-image: none;
@@ -4506,8 +4967,10 @@ label {
   .counter-section .single-box {
     padding: 20px 15px;
   }
-  .how-works .single-box.mid::before, .how-works .single-box.mid::after {
-    display: none;
+  /* Hide arrows on smaller screens */
+  .how-works .single-box::after,
+  .how-works .single-box::before {
+    display: none !important;
   }
   .how-works .single-box h5 {
     margin: 23px 0 15px;
@@ -4667,8 +5130,9 @@ label {
     margin-left: 0;
   }
   .banner-section.index .overlay {
-    background-size: 210%;
-    background-position: left -280px bottom;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .total-jackpot .section-area {
     background-size: 100% 260%;
@@ -4773,8 +5237,9 @@ label {
 }
 @media (max-width: 767px) {
   .banner-section.index .overlay {
-    background-size: 300%;
-    background-position: left -280px bottom;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .features .single-box {
     padding: 40px 0 30px;
@@ -4983,7 +5448,8 @@ label {
 @media (max-width: 480px) {
   .banner-section.index .overlay {
     background-size: cover;
-    background-position: left -160px bottom;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .how-works .single-box img {
     width: 25%;
@@ -5047,6 +5513,29 @@ label {
   }
   .weekly-lottery .prize-pool {
     padding: 20px 10px;
+  }
+  
+  /* About Us Section Responsive Styles */
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .section-header .title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .intro-text {
+    font-size: 16px;
+    padding: 20px;
+    line-height: 1.8;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .feature-list li {
+    padding: 20px;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .feature-list li div {
+    font-size: 15px;
+  }
+  .popular-game#what-is-playparadice .about-us-content .lottery-content .feature-list li strong {
+    font-size: 16px;
+  }
+  .popular-game#what-is-playparadice .about-us-content .counter-area .single-box h3 {
+    font-size: 32px;
   }
   .single-radio .checkmark {
     width: 20px;
