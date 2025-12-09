@@ -1047,16 +1047,33 @@ label {
   font-weight: 600;
   background-color: transparent;
   color: var(--bs-white);
-  transition: 0.3s;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link::after,
+.header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  width: 0;
+  height: 2px;
+  background-color: #00ff00;
+  transition: width 0.3s ease, left 0.3s ease;
 }
 .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover,
 .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item:hover {
   color: var(--primary-color);
-  transition: 0.3s;
+  transition: color 0.3s ease;
 }
 .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active,
 .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item.active {
-  color: var(--primary-color);
+  color: #00ff00;
+}
+.header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active::after,
+.header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item.active::after {
+  width: calc(100% - 20px);
 }
 .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link.dropdown-toggle {
   margin-right: 15px;
@@ -1981,27 +1998,7 @@ label {
 }
 
 /* Animated Background Image at Bottom of About Us Section */
-.popular-game#what-is-playparadice .about-us-bottom-bg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  z-index: 0;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.popular-game#what-is-playparadice .about-us-bottom-bg img {
-  width: 200px;
-  max-width: 25vw;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  opacity: 0.8;
-  animation: moveHorizontal 15s ease-in-out infinite;
-  transform: translateX(0);
-}
+/* Removed - image moved to referral section */
 
 @keyframes moveHorizontal {
   0% {
@@ -2021,20 +2018,7 @@ label {
   }
 }
 
-/* Responsive adjustments for small image */
-@media (max-width: 768px) {
-  .popular-game#what-is-playparadice .about-us-bottom-bg img {
-    width: 150px;
-    max-width: 30vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .popular-game#what-is-playparadice .about-us-bottom-bg img {
-    width: 120px;
-    max-width: 35vw;
-  }
-}
+/* Removed - image moved to referral section */
 
 /* Ensure content stays above the animated background */
 .popular-game#what-is-playparadice .overlay {
@@ -2434,21 +2418,22 @@ label {
 }
 .popular-game .about-us-content {
   position: relative;
-  padding: 60px 0;
+  padding: 0;
+  margin-top: -80px;
   z-index: 1;
 }
 .popular-game .about-us-content .shape-item {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 80px;
   z-index: 0;
-  transform: translateY(-20px);
+  transform: translateY(0);
   opacity: 0.8;
 }
 .popular-game .about-us-content .shape-area {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 120px;
   z-index: 0;
   opacity: 0.8;
 }
@@ -2456,6 +2441,173 @@ label {
   padding-left: 20px;
   position: relative;
   z-index: 2;
+  margin-top: 100px;
+}
+
+/* Unified Content Card */
+.unified-content-card {
+  background: linear-gradient(135deg, rgba(43, 24, 89, 0.95), rgba(27, 12, 67, 0.95));
+  border: 2px solid rgba(161, 255, 0, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(161, 255, 0, 0.15);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.unified-content-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(161, 255, 0, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.unified-content-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(161, 255, 0, 0.4);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(161, 255, 0, 0.25);
+}
+
+.unified-content-card:hover::before {
+  opacity: 1;
+}
+
+.unified-content-card .card-intro {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 28px 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.card-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.card-features-grid .feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-features-grid .feature-item:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(161, 255, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.card-features-grid .feature-item .feature-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 8px rgba(161, 255, 0, 0.4));
+}
+
+.card-features-grid .feature-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-features-grid .feature-item strong {
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-features-grid .feature-item span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.card-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-stats .stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.card-stats .stat-item h3 {
+  color: var(--primary-color);
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  text-shadow: 0 0 20px rgba(161, 255, 0, 0.5);
+  line-height: 1;
+}
+
+.card-stats .stat-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive for unified card */
+@media (max-width: 991px) {
+  .card-features-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .unified-content-card {
+    padding: 24px 20px;
+    margin-top: 20px;
+  }
+  
+  .unified-content-card .card-intro {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .card-features-grid .feature-item {
+    padding: 16px 10px;
+  }
+  
+  .card-features-grid .feature-item .feature-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .card-stats .stat-item h3 {
+    font-size: 28px;
+  }
 }
 
 .popular-game .about-us-content .lottery-content .section-header {
@@ -2596,6 +2748,19 @@ label {
 }
 .popular-game .about-us-content .sec-img {
   position: relative;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.popular-game .about-us-content .col-lg-5 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.popular-game .about-us-content .sec-img .bg-img {
+  height: auto;
+  max-height: 55%;
+  object-fit: contain;
 }
 .popular-game .about-us-content .popup-area {
   position: absolute;
@@ -2667,6 +2832,34 @@ label {
   height: 28px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+}
+
+/* Mobile video button ring shadows - proportional to 70px button */
+.popular-game .about-us-content .mobile-popup-area .magnific-area .mfp-iframe::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  z-index: -5;
+  width: 85px;
+  height: 85px;
+  background-color: rgb(105, 185, 66);
+  top: -7.5px;
+  left: -7.5px;
+  opacity: 0.3;
+}
+
+.popular-game .about-us-content .mobile-popup-area .magnific-area .mfp-iframe::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  z-index: -2;
+  animation: stretch 5s linear infinite;
+  border: 2px solid var(--bs-white);
+  background-color: rgba(32, 16, 72, 0);
+  width: 100px;
+  height: 100px;
+  top: -15px;
+  left: -15px;
 }
 .popular-game .about-us-content .magnific-area {
   position: relative;
@@ -4449,6 +4642,44 @@ label {
 
 .refer-section .overlay {
   position: relative;
+}
+
+/* Floating Image at Right Bottom Corner of Referral Section */
+.refer-section .refer-bottom-bg {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.refer-section .refer-bottom-bg img {
+  width: 200px;
+  max-width: 25vw;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.8;
+  animation: moveHorizontal 15s ease-in-out infinite;
+  transform: translateX(0);
+}
+
+/* Responsive adjustments for referral section image */
+@media (max-width: 768px) {
+  .refer-section .refer-bottom-bg img {
+    width: 150px;
+    max-width: 30vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .refer-section .refer-bottom-bg img {
+    width: 120px;
+    max-width: 35vw;
+  }
 }
 
 .refer-banner-image {
