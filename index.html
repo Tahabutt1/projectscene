@@ -1130,14 +1130,21 @@
                             <h3 class="newsletter-title">Stay Updated</h3>
                             <p class="newsletter-subtitle">Get the latest updates on $PRD, staking rewards, and PlayParadice news</p>
                         </div>
-                        <form action="#" class="newsletter-form">
+                        <form action="#" class="newsletter-form" id="newsletterForm">
                             <div class="form-group input-area d-flex align-items-center">
-                                <input type="email" placeholder="Enter your email address" required>
-                                <button type="submit" class="btn-area" aria-label="Send email">
+                                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn-area newsletter-submit-btn" aria-label="Send email">
                                     <span class="send-icon">➤</span>
                                 </button>
                             </div>
                         </form>
+                        <!-- Success Banner -->
+                        <div class="newsletter-success-banner" id="newsletterSuccessBanner">
+                            <div class="success-banner-content">
+                                <span class="success-icon">✓</span>
+                                <span class="success-message">Successfully submitted!</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1252,11 +1259,13 @@
             const comingSoonModal = new bootstrap.Modal(modalEl);
 
             const shouldIgnore = (el) => {
-                // Skip navbar toggler, modal close buttons, and FAQ accordion buttons
+                // Skip navbar toggler, modal close buttons, FAQ accordion buttons, and newsletter submit button
                 return el.closest('.navbar-toggler') || 
                        el.classList.contains('btn-close') || 
                        el.classList.contains('accordion-button') ||
-                       el.closest('.faq-accordion');
+                       el.classList.contains('newsletter-submit-btn') ||
+                       el.closest('.faq-accordion') ||
+                       el.closest('.newsletter-form');
             };
 
             const showComingSoon = (event) => {
@@ -1353,6 +1362,39 @@
             
             // Initialize with default year
             setActiveYear(activeYear);
+        })();
+
+        // Newsletter Form Success Banner
+        (function() {
+            const newsletterForm = document.getElementById('newsletterForm');
+            const successBanner = document.getElementById('newsletterSuccessBanner');
+            const emailInput = document.getElementById('newsletterEmail');
+
+            if (!newsletterForm || !successBanner) return;
+
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Get email value
+                const email = emailInput.value.trim();
+                
+                // Validate email
+                if (!email || !email.includes('@')) {
+                    return;
+                }
+
+                // Show success banner
+                successBanner.classList.add('show');
+
+                // Clear the form
+                emailInput.value = '';
+
+                // Hide banner after 4 seconds
+                setTimeout(function() {
+                    successBanner.classList.remove('show');
+                }, 4000);
+            });
         })();
     </script>
 </body>
