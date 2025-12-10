@@ -1171,6 +1171,46 @@ label {
   overflow: hidden;
 }
 
+/* Snowfall Effect Container */
+.snowfall-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  user-select: none;
+  animation: snowfall linear infinite;
+  opacity: 0;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(var(--swirl)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 .banner-section.inner-banner .main-content .breadcrumb-area {
   margin-top: 10px;
 }
@@ -1629,11 +1669,15 @@ label {
 .footer-widget {
   margin-bottom: 30px;
 }
+.footer-logo {
+  margin-top: 20px;
+}
 .footer-logo img {
   max-width: 120px;
   height: auto;
   filter: brightness(1.1);
   transition: transform 0.3s ease;
+  margin-top: 20px;
 }
 
 .footer-logo img:hover {
@@ -1663,6 +1707,7 @@ label {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 24px;
+  margin-top: 20px;
   text-transform: none;
   position: relative;
   padding-bottom: 12px;
@@ -5279,7 +5324,7 @@ label {
 }
 
 .referral-steps li {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--bs-white);
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -5309,9 +5354,18 @@ label {
   box-shadow: 0 0 15px rgba(161, 255, 0, 0.4);
 }
 
-.referral-steps li strong {
+.referral-steps li strong.step-number {
   color: var(--primary-color);
   font-weight: 600;
+  display: inline;
+}
+
+.referral-steps li .step-text {
+  color: var(--bs-white);
+  font-weight: 600;
+}
+.referral-steps li {
+  color: var(--bs-white);
 }
 
 .refer-note {
@@ -5510,9 +5564,10 @@ label {
     line-height: 1.4;
   }
   .faq-accordion .accordion-button::after {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    margin-left: auto;
   }
 }
 
@@ -6892,7 +6947,7 @@ label {
   .banner-section.index .overlay .banner-content {
     position: relative;
     z-index: 1;
-    padding: 90px 0 60px;
+    padding: 120px 0 60px;
   }
   
   /* Banner Section - Tablet/Mobile */
@@ -7432,7 +7487,7 @@ label {
   
   /* Banner Section - Extra Small Mobile */
   .banner-section.index .overlay .banner-content {
-    padding: 60px 0 30px;
+    padding: 100px 0 30px;
   }
   
   .banner-section.index .overlay {
@@ -7771,9 +7826,10 @@ label {
   }
   
   .faq-accordion .accordion-button::after {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    margin-left: auto;
   }
   
   /* Footer - Extra Small Mobile */

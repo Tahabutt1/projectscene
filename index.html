@@ -178,6 +178,7 @@
 
     <!-- Banner Section start -->
     <section class="banner-section index" id="home">
+        <div class="snowfall-container" id="snowfallContainer"></div>
         <div class="overlay">
             <div class="banner-content">
                 <div class="container wow fadeInUp">
@@ -893,9 +894,9 @@
                             <h2 class="refer-title">Invite. Stake. Earn.</h2>
                             <p class="refer-description">Turn your network into real rewards with PlayParadice's staking referral program.</p>
                             <ul class="referral-steps">
-                                <li><strong>1. Share Your Link</strong> – Connect your wallet and invite others.</li>
-                                <li><strong>2. They Stake $PRD</strong> – Referrals tracked during the staking period.</li>
-                                <li><strong>3. You Earn</strong> – Unlock bonus rewards based on real staking volume.</li>
+                                <li><strong class="step-number">1.</strong> <span class="step-text">Share Your Link</span> – Connect your wallet and invite others.</li>
+                                <li><strong class="step-number">2.</strong> <span class="step-text">They Stake $PRD</span> – Referrals tracked during the staking period.</li>
+                                <li><strong class="step-number">3.</strong> <span class="step-text">You Earn</span> – Unlock bonus rewards based on real staking volume.</li>
                             </ul>
                             <p class="refer-note">
                                 Staking-based. Anti-abuse. VIP-linked. Final reward terms will be announced before launch.
@@ -1266,6 +1267,131 @@
                 setTimeout(function() {
                     successBanner.classList.remove('show');
                 }, 4000);
+            });
+        })();
+
+        // Snowfall Effect - Only on Banner Section
+        (function() {
+            const bannerSection = document.querySelector('.banner-section.index');
+            const snowfallContainer = document.getElementById('snowfallContainer');
+            
+            if (!bannerSection || !snowfallContainer) return;
+
+            // Configuration
+            const config = {
+                amount: 50,        // Number of snowflakes
+                speed: 2,          // Base speed (seconds)
+                minSpeed: 3,       // Minimum speed variation
+                maxSpeed: 8,       // Maximum speed variation
+                minSize: 8,        // Minimum size in px
+                maxSize: 18,       // Maximum size in px
+                swirl: 50,         // Swirl distance in px
+                characters: ['❄', '❅', '❆', '✻', '✼', '✽', '✾', '✿', '❀', '❁']
+            };
+
+            // Get banner section dimensions
+            function getBannerDimensions() {
+                const rect = bannerSection.getBoundingClientRect();
+                return {
+                    width: rect.width,
+                    height: rect.height,
+                    top: rect.top,
+                    left: rect.left
+                };
+            }
+
+            // Create a single snowflake
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                
+                // Random character
+                const char = config.characters[Math.floor(Math.random() * config.characters.length)];
+                snowflake.textContent = char;
+                
+                // Random size
+                const size = Math.random() * (config.maxSize - config.minSize) + config.minSize;
+                snowflake.style.fontSize = size + 'px';
+                
+                // Random starting position
+                const bannerDims = getBannerDimensions();
+                snowflake.style.left = Math.random() * 100 + '%';
+                
+                // Random speed
+                const speed = Math.random() * (config.maxSpeed - config.minSpeed) + config.minSpeed;
+                snowflake.style.animationDuration = speed + 's';
+                
+                // Random swirl
+                const swirlAmount = (Math.random() - 0.5) * config.swirl;
+                snowflake.style.setProperty('--swirl', swirlAmount + 'px');
+                
+                // Random opacity
+                const opacity = Math.random() * 0.5 + 0.5; // 0.5 to 1.0
+                snowflake.style.opacity = opacity;
+                
+                // Random delay
+                snowflake.style.animationDelay = Math.random() * 2 + 's';
+                
+                snowfallContainer.appendChild(snowflake);
+                
+                // Remove snowflake after animation
+                setTimeout(() => {
+                    if (snowflake.parentNode) {
+                        snowflake.parentNode.removeChild(snowflake);
+                    }
+                }, speed * 1000 + 2000);
+            }
+
+            // Initialize snowfall
+            function initSnowfall() {
+                // Clear existing snowflakes
+                snowfallContainer.innerHTML = '';
+                
+                // Create initial snowflakes
+                for (let i = 0; i < config.amount; i++) {
+                    setTimeout(() => {
+                        createSnowflake();
+                    }, i * (config.maxSpeed * 1000 / config.amount));
+                }
+                
+                // Continuously create new snowflakes
+                setInterval(() => {
+                    if (snowfallContainer.children.length < config.amount) {
+                        createSnowflake();
+                    }
+                }, 500);
+            }
+
+            // Start snowfall when banner is visible
+            function checkVisibility() {
+                const bannerDims = getBannerDimensions();
+                const windowHeight = window.innerHeight;
+                
+                // Check if banner section is in viewport
+                if (bannerDims.top < windowHeight && bannerDims.top + bannerDims.height > 0) {
+                    if (snowfallContainer.children.length === 0) {
+                        initSnowfall();
+                    }
+                }
+            }
+
+            // Initialize on load
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', checkVisibility);
+            } else {
+                checkVisibility();
+            }
+
+            // Check on scroll
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(checkVisibility, 100);
+            });
+
+            // Check on resize
+            window.addEventListener('resize', () => {
+                checkVisibility();
             });
         })();
     </script>
