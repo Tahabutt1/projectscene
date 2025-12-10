@@ -157,6 +157,19 @@ $(function ($) {
         $('.navbar-nav .nav-link').removeClass('active');
         $(this).addClass('active');
         
+        // Close mobile menu if open (only on mobile view)
+        if ($(window).width() < 992) {
+          var navbarCollapse = $('#navbar-content');
+          var navbarToggler = $('.navbar-toggler');
+          if (navbarCollapse.hasClass('show')) {
+            // Close the menu by removing 'show' class and adding 'collapsed' to toggler
+            navbarCollapse.removeClass('show');
+            navbarToggler.addClass('collapsed');
+            navbarToggler.attr('aria-expanded', 'false');
+            navbarCollapse.attr('aria-expanded', 'false');
+          }
+        }
+        
         var offset = 100; // Offset for fixed header
         $('html, body').animate({
           scrollTop: target.offset().top - offset

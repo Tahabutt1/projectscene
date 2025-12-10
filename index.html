@@ -99,6 +99,81 @@
             0%, 100% { box-shadow: 0 0 25px rgba(248, 174, 61, 0.35), 0 0 15px rgba(255, 94, 195, 0.25); transform: scale(1); }
             50% { box-shadow: 0 0 40px rgba(248, 174, 61, 0.6), 0 0 30px rgba(255, 94, 195, 0.45); transform: scale(1.05); }
         }
+
+        /* Scroll to Top Button Styles */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background-color: #00ff00;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3), 0 0 20px rgba(0, 255, 0, 0.2);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #00e600;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .scroll-to-top svg {
+            width: 24px;
+            height: 24px;
+            stroke: #000;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .scroll-to-top svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .scroll-to-top {
+                width: 44px;
+                height: 44px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .scroll-to-top svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -1121,6 +1196,14 @@
     </footer>
     <!-- Footer Area End -->
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+            <path d="M18 9l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <!--==================================================================-->
     <!-- Core Dependencies (must load first) -->
     <script src="assets/js/jquery.min.js"></script>
@@ -1145,13 +1228,15 @@
             const comingSoonModal = new bootstrap.Modal(modalEl);
 
             const shouldIgnore = (el) => {
-                // Skip navbar toggler, modal close buttons, FAQ accordion buttons, and newsletter submit button
+                // Skip navbar toggler, modal close buttons, FAQ accordion buttons, newsletter submit button, and scroll-to-top button
                 return el.closest('.navbar-toggler') || 
                        el.classList.contains('btn-close') || 
                        el.classList.contains('accordion-button') ||
                        el.classList.contains('newsletter-submit-btn') ||
+                       el.classList.contains('scroll-to-top') ||
                        el.closest('.faq-accordion') ||
-                       el.closest('.newsletter-form');
+                       el.closest('.newsletter-form') ||
+                       el.closest('#scrollToTopBtn');
             };
 
             const showComingSoon = (event) => {
@@ -1279,10 +1364,10 @@
 
             // Configuration
             const config = {
-                amount: 50,        // Number of snowflakes
+                amount: 25,        // Number of snowflakes
                 speed: 2,          // Base speed (seconds)
-                minSpeed: 3,       // Minimum speed variation
-                maxSpeed: 8,       // Maximum speed variation
+                minSpeed: 8,       // Minimum speed variation (slower)
+                maxSpeed: 15,      // Maximum speed variation (slower)
                 minSize: 8,        // Minimum size in px
                 maxSize: 18,       // Maximum size in px
                 swirl: 50,         // Swirl distance in px
@@ -1325,8 +1410,8 @@
                 const swirlAmount = (Math.random() - 0.5) * config.swirl;
                 snowflake.style.setProperty('--swirl', swirlAmount + 'px');
                 
-                // Random opacity
-                const opacity = Math.random() * 0.5 + 0.5; // 0.5 to 1.0
+                // Random opacity (dimmed)
+                const opacity = Math.random() * 0.2 + 0.2; // 0.2 to 0.4 (dimmed)
                 snowflake.style.opacity = opacity;
                 
                 // Random delay
@@ -1393,6 +1478,46 @@
             window.addEventListener('resize', () => {
                 checkVisibility();
             });
+        })();
+
+        // Scroll to Top Button Functionality
+        (function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (!scrollToTopBtn) return;
+
+            // Show/hide button based on scroll position
+            function toggleScrollButton() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            }
+
+            // Smooth scroll to top
+            scrollToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Smooth scroll to home section
+                const homeSection = document.getElementById('home');
+                if (homeSection) {
+                    homeSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    // Fallback: scroll to top of page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+
+            // Check scroll position on load and scroll
+            toggleScrollButton();
+            window.addEventListener('scroll', toggleScrollButton);
         })();
     </script>
 </body>
