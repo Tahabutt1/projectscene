@@ -6947,7 +6947,7 @@ label {
   .banner-section.index .overlay .banner-content {
     position: relative;
     z-index: 1;
-    padding: 120px 0 60px;
+    padding: 150px 0 60px;
   }
   
   /* Banner Section - Tablet/Mobile */
@@ -7114,7 +7114,7 @@ label {
     padding: 20px 15px;
   }
   .banner-section.index .overlay .banner-content {
-    padding: 80px 0 40px;
+    padding: 130px 0 40px;
   }
   
   .banner-section.index .overlay {
@@ -7487,7 +7487,7 @@ label {
   
   /* Banner Section - Extra Small Mobile */
   .banner-section.index .overlay .banner-content {
-    padding: 100px 0 30px;
+    padding: 140px 0 30px;
   }
   
   .banner-section.index .overlay {
