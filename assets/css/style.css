@@ -1114,7 +1114,7 @@ label {
   position: relative;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100vh;
+  min-height: auto;
 }
 .banner-section .overlay::before {
   content: "";
@@ -1128,7 +1128,7 @@ label {
   pointer-events: none;
 }
 .banner-section .overlay .banner-content {
-  padding: 195px 0 160px;
+  padding: 120px 0 80px;
 }
 
 /* Prevent text overflow and ensure proper container padding on mobile */
@@ -1155,6 +1155,15 @@ label {
 }
 .banner-section .overlay .banner-content .main-content .top-area h1 span {
   color: var(--primary-color);
+}
+.banner-section.index .main-content .top-area .btn-area.mt-30 {
+  margin-top: 15px !important;
+}
+.banner-section.index .main-content .top-area h1 {
+  margin-bottom: 15px;
+}
+.banner-section.index .main-content .top-area .xlr {
+  margin-bottom: 15px;
 }
 .banner-section.index {
   overflow-x: initial;
@@ -1914,11 +1923,7 @@ label {
 
 /* Enhanced About Us Section Background */
 .popular-game#what-is-playparadice {
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(122, 97, 255, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(248, 174, 61, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(161, 255, 0, 0.15) 0%, transparent 60%),
-    linear-gradient(135deg, #0f0528 0%, #1a0d3a 25%, #1f1147 50%, #1a0d3a 75%, #0f0528 100%);
+  background: #140836;
   background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
   animation: backgroundShift 15s ease-in-out infinite;
@@ -2435,7 +2440,7 @@ label {
   padding-left: 20px;
   position: relative;
   z-index: 2;
-  margin-top: 100px;
+  margin-top: 0;
 }
 
 /* Unified Content Card */
@@ -2568,6 +2573,45 @@ label {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* Content without card styling */
+.content-intro {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+}
+
+.content-stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.content-stats .stat-item {
+  text-align: left;
+  flex: 0 0 auto;
+}
+
+.content-stats .stat-item h3 {
+  color: var(--primary-color);
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  text-shadow: 0 0 20px rgba(161, 255, 0, 0.5);
+  line-height: 1;
+}
+
+.content-stats .stat-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 /* Mobile Single Eye-Catching Box */
@@ -2777,6 +2821,12 @@ label {
     margin-right: auto;
     max-width: 100%;
     width: 100%;
+    margin-top: 100px;
+  }
+  
+  .popular-game .about-us-content .shape-item,
+  .popular-game .about-us-content .shape-area {
+    opacity: 0.2;
   }
   
   .unified-content-card {
@@ -2833,6 +2883,24 @@ label {
     margin: 0;
   }
   
+  .content-intro {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .content-stats {
+    gap: 30px;
+    margin-top: 16px;
+  }
+  
+  .content-stats .stat-item h3 {
+    font-size: 28px;
+  }
+  
+  .content-stats .stat-item p {
+    font-size: 13px;
+  }
+  
   .card-features-grid .feature-item {
     padding: 16px 10px;
   }
@@ -2880,6 +2948,25 @@ label {
   
   .desktop-stats .stat-item p {
     font-size: 10px;
+  }
+  
+  .content-intro {
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  .content-stats {
+    gap: 20px;
+    margin-top: 12px;
+  }
+  
+  .content-stats .stat-item h3 {
+    font-size: 20px;
+  }
+  
+  .content-stats .stat-item p {
+    font-size: 11px;
   }
 }
 
@@ -3613,12 +3700,15 @@ label {
 
 .features .single-box ul {
   list-style: disc;
+  list-style-position: outside;
   padding-left: 20px;
   padding-bottom: 0;
-  margin: 0;
+  margin: 0 auto;
   color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   line-height: 1.7;
+  text-align: left;
+  display: inline-block;
 }
 
 .features .single-box ul li {
@@ -3732,7 +3822,11 @@ label {
     font-size: 13px;
     padding-left: 18px;
     padding-bottom: 0;
+    margin: 0 auto;
     margin-bottom: 0;
+    list-style-position: outside;
+    text-align: left;
+    display: inline-block;
   }
 }
 
@@ -3791,7 +3885,11 @@ label {
     line-height: 1.6;
     padding-left: 16px;
     padding-bottom: 0;
+    margin: 0 auto;
     margin-bottom: 0;
+    list-style-position: outside;
+    text-align: left;
+    display: inline-block;
   }
   
   .features .single-box ul li + li {
@@ -3857,7 +3955,11 @@ label {
     line-height: 1.5;
     padding-left: 14px;
     padding-bottom: 0;
+    margin: 0 auto;
     margin-bottom: 0;
+    list-style-position: outside;
+    text-align: left;
+    display: inline-block;
   }
   
   .features .single-box ul li + li {
@@ -4563,21 +4665,21 @@ label {
 }
 
 .roadmap-node-purple.active {
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, rgba(161, 255, 0, 0.4), rgba(76, 41, 126, 0.4));
-  box-shadow: 0 0 20px rgba(161, 255, 0, 0.6), 0 0 40px rgba(161, 255, 0, 0.3);
-}
-
-.roadmap-node-orange.active {
   border-color: #ff6b35;
   background: linear-gradient(135deg, rgba(255, 107, 53, 0.4), rgba(255, 50, 0, 0.3));
   box-shadow: 0 0 20px rgba(255, 107, 53, 0.6), 0 0 40px rgba(255, 107, 53, 0.3);
 }
 
+.roadmap-node-orange.active {
+  border-color: #9b59b6;
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.4), rgba(123, 44, 191, 0.3));
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.6), 0 0 40px rgba(155, 89, 182, 0.3);
+}
+
 .roadmap-node-green.active {
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, rgba(161, 255, 0, 0.4), rgba(161, 255, 0, 0.3));
-  box-shadow: 0 0 20px rgba(161, 255, 0, 0.6), 0 0 40px rgba(161, 255, 0, 0.3);
+  border-color: #808080;
+  background: linear-gradient(135deg, rgba(128, 128, 128, 0.4), rgba(108, 117, 125, 0.3));
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.6), 0 0 40px rgba(128, 128, 128, 0.3);
 }
 
 /* Year Label */
@@ -4601,27 +4703,21 @@ label {
 }
 
 .roadmap-year-node[data-year="2026"].active .roadmap-year-label {
-  color: var(--primary-color);
-}
-
-.roadmap-year-node[data-year="2027"].active .roadmap-year-label {
   color: #ff6b35;
 }
 
+.roadmap-year-node[data-year="2027"].active .roadmap-year-label {
+  color: #9b59b6;
+}
+
 .roadmap-year-node[data-year="2028"].active .roadmap-year-label {
-  color: var(--primary-color);
+  color: #808080;
 }
 
 /* Content Area */
 .roadmap-content-area {
   position: relative;
   min-height: 400px;
-  background: rgba(15, 5, 35, 0.6);
-  backdrop-filter: blur(15px);
-  border-radius: 24px;
-  padding: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .roadmap-phase-content {
@@ -4663,15 +4759,15 @@ label {
 }
 
 .roadmap-indicator-purple {
-  background: linear-gradient(to bottom, var(--primary-color), rgba(76, 41, 126, 0.8));
-}
-
-.roadmap-indicator-orange {
   background: linear-gradient(to bottom, #ff6b35, #ff3200);
 }
 
+.roadmap-indicator-orange {
+  background: linear-gradient(to bottom, #9b59b6, #7b2cbf);
+}
+
 .roadmap-indicator-green {
-  background: var(--primary-color);
+  background: #808080;
 }
 
 .roadmap-phase-title {
@@ -4688,24 +4784,18 @@ label {
 }
 
 .roadmap-title-purple {
-  background: linear-gradient(135deg, var(--primary-color), rgba(76, 41, 126, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ff6b35;
 }
 
 .roadmap-title-orange {
-  background: linear-gradient(135deg, #ff6b35, #ff3200);
+  background: linear-gradient(135deg, #9b59b6, #7b2cbf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .roadmap-title-green {
-  background: var(--primary-color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #808080;
 }
 
 /* Quarter Sections */
@@ -4743,21 +4833,21 @@ label {
 }
 
 .roadmap-quarter-purple {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(161, 255, 0, 0.3);
-}
-
-.roadmap-quarter-orange {
   color: #ff6b35;
   border-color: #ff6b35;
   box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
 }
 
+.roadmap-quarter-orange {
+  color: #9b59b6;
+  border-color: #9b59b6;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+}
+
 .roadmap-quarter-green {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(161, 255, 0, 0.3);
+  color: #808080;
+  border-color: #808080;
+  box-shadow: 0 0 15px rgba(128, 128, 128, 0.3);
 }
 
 /* Items Grid */
@@ -4797,15 +4887,15 @@ label {
 }
 
 .roadmap-dot-purple {
-  background: linear-gradient(135deg, var(--primary-color), rgba(76, 41, 126, 0.8));
-}
-
-.roadmap-dot-orange {
   background: linear-gradient(135deg, #ff6b35, #ff3200);
 }
 
+.roadmap-dot-orange {
+  background: linear-gradient(135deg, #9b59b6, #7b2cbf);
+}
+
 .roadmap-dot-green {
-  background: var(--primary-color);
+  background: #808080;
 }
 
 .roadmap-item-card:hover {
@@ -4849,16 +4939,6 @@ label {
 
 .roadmap-item-card.roadmap-item-purple .roadmap-item-content {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
-              0 0 20px rgba(161, 255, 0, 0.15);
-  border-color: rgba(161, 255, 0, 0.2);
-  height: 100px;
-  min-height: 100px;
-  max-height: 100px;
-  overflow: hidden;
-}
-
-.roadmap-item-card.roadmap-item-orange .roadmap-item-content {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
               0 0 20px rgba(255, 107, 53, 0.15);
   border-color: rgba(255, 107, 53, 0.2);
   height: 100px;
@@ -4867,10 +4947,20 @@ label {
   overflow: hidden;
 }
 
+.roadmap-item-card.roadmap-item-orange .roadmap-item-content {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(155, 89, 182, 0.15);
+  border-color: rgba(155, 89, 182, 0.2);
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
 .roadmap-item-card.roadmap-item-green .roadmap-item-content {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
-              0 0 20px rgba(161, 255, 0, 0.15);
-  border-color: rgba(161, 255, 0, 0.2);
+              0 0 20px rgba(128, 128, 128, 0.15);
+  border-color: rgba(128, 128, 128, 0.2);
   height: 100px;
   min-height: 100px;
   max-height: 100px;
@@ -4892,20 +4982,20 @@ label {
 
 .roadmap-item-card.roadmap-item-purple:hover .roadmap-item-content {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
-              0 0 30px rgba(161, 255, 0, 0.25);
-  border-color: rgba(161, 255, 0, 0.4);
-}
-
-.roadmap-item-card.roadmap-item-orange:hover .roadmap-item-content {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
               0 0 30px rgba(255, 107, 53, 0.25);
   border-color: rgba(255, 107, 53, 0.4);
 }
 
+.roadmap-item-card.roadmap-item-orange:hover .roadmap-item-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(155, 89, 182, 0.25);
+  border-color: rgba(155, 89, 182, 0.4);
+}
+
 .roadmap-item-card.roadmap-item-green:hover .roadmap-item-content {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
-              0 0 30px rgba(161, 255, 0, 0.25);
-  border-color: rgba(161, 255, 0, 0.4);
+              0 0 30px rgba(128, 128, 128, 0.25);
+  border-color: rgba(128, 128, 128, 0.4);
 }
 
 .roadmap-item-check {
@@ -4923,24 +5013,21 @@ label {
 }
 
 .roadmap-check-purple {
-  background: linear-gradient(135deg, var(--primary-color), rgba(76, 41, 126, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.roadmap-check-orange {
   background: linear-gradient(135deg, #ff6b35, #ff3200);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.roadmap-check-green {
-  background: var(--primary-color);
+.roadmap-check-orange {
+  background: linear-gradient(135deg, #9b59b6, #7b2cbf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.roadmap-check-green {
+  color: #808080;
 }
 
 .roadmap-item-content p {
@@ -5394,22 +5481,38 @@ label {
   margin-top: 10px;
 }
 @media (max-width: 768px) {
+  .faq-accordion .accordion-item {
+    margin-bottom: 12px;
+    border-radius: 0 !important;
+  }
   .faq-accordion .accordion-button {
-    padding: 20px;
-    font-size: 16px;
-    flex-wrap: wrap;
+    padding: 12px 16px;
+    font-size: 14px;
+    flex-wrap: nowrap;
+    min-height: auto;
+    height: auto;
+    gap: 12px;
   }
   .faq-accordion .faq-icon {
-    font-size: 24px;
+    font-size: 20px;
+    flex-shrink: 0;
+    margin: 0;
   }
   .faq-accordion .accordion-body {
-    padding: 10px 20px 20px 20px;
-    font-size: 15px;
+    padding: 8px 16px 12px 48px;
+    font-size: 14px;
     text-align: left;
   }
   .faq-accordion .faq-question {
-    flex: 1 1 100%;
-    margin-top: 8px;
+    flex: 1;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .faq-accordion .accordion-button::after {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
   }
 }
 
@@ -6789,7 +6892,7 @@ label {
   .banner-section.index .overlay .banner-content {
     position: relative;
     z-index: 1;
-    padding: 160px 0 140px;
+    padding: 90px 0 60px;
   }
   
   /* Banner Section - Tablet/Mobile */
@@ -6956,24 +7059,33 @@ label {
     padding: 20px 15px;
   }
   .banner-section.index .overlay .banner-content {
-    padding: 170px 0 130px;
+    padding: 80px 0 40px;
+  }
+  
+  .banner-section.index .overlay {
+    min-height: auto;
   }
   
   /* Banner Section - Mobile Improvements */
   .banner-section .main-content .top-area h1 {
     font-size: 36px;
     line-height: 1.3;
+    margin-bottom: 12px;
   }
   
   .banner-section .main-content .top-area .xlr {
     font-size: 15px;
     line-height: 1.7;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   
   .banner-section .main-content .top-area .sub-title {
     font-size: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .banner-section .main-content .top-area .btn-area {
+    margin-top: 15px !important;
   }
   
   /* Counter Section - Mobile Improvements */
@@ -7320,17 +7432,31 @@ label {
   
   /* Banner Section - Extra Small Mobile */
   .banner-section.index .overlay .banner-content {
-    padding: 140px 0 110px;
+    padding: 60px 0 30px;
+  }
+  
+  .banner-section.index .overlay {
+    min-height: auto;
   }
   
   .banner-section .main-content .top-area h1 {
     font-size: 32px;
     line-height: 1.2;
+    margin-bottom: 10px;
   }
   
   .banner-section .main-content .top-area .xlr {
     font-size: 14px;
     line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .banner-section .main-content .top-area .btn-area {
+    margin-top: 10px !important;
+  }
+  
+  .banner-section .main-content .top-area .sub-title {
+    margin-bottom: 6px;
   }
   
   /* Counter Section - Extra Small Mobile */
@@ -7572,7 +7698,7 @@ label {
   }
   
   .roadmap-content-area {
-    padding: 24px 16px;
+    padding: 0;
   }
   
   .roadmap-quarter-badge {
@@ -7612,19 +7738,42 @@ label {
   }
   
   /* FAQ Section - Extra Small Mobile */
+  .faq-accordion .accordion-item {
+    margin-bottom: 10px;
+    border-radius: 0 !important;
+  }
   .faq-accordion .accordion-button {
-    padding: 16px;
-    font-size: 14px;
+    padding: 10px 12px;
+    font-size: 13px;
+    flex-wrap: nowrap;
+    min-height: auto;
+    height: auto;
+    gap: 10px;
   }
   
   .faq-accordion .faq-icon {
-    font-size: 24px;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  
+  .faq-accordion .faq-question {
+    flex: 1;
+    margin-top: 0;
+    font-size: 13px;
+    line-height: 1.3;
   }
   
   .faq-accordion .accordion-body {
-    padding: 10px 16px 16px 20px;
-    font-size: 14px;
+    padding: 6px 12px 10px 40px;
+    font-size: 13px;
     text-align: left;
+  }
+  
+  .faq-accordion .accordion-button::after {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
   }
   
   /* Footer - Extra Small Mobile */
