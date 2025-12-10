@@ -5502,6 +5502,7 @@ label {
 .faq-accordion .faq-question {
   flex: 1;
   text-align: left;
+  margin-top: 4px;
 }
 .faq-accordion .accordion-body {
   padding: 0 28px 24px 68px;
@@ -5521,10 +5522,10 @@ label {
     border-radius: 6px !important;
   }
   .faq-accordion .accordion-button {
-    padding: 12px 16px;
+    padding: 20px 20px;
     font-size: 14px;
     flex-wrap: nowrap;
-    min-height: auto;
+    min-height: 68px;
     height: auto;
     gap: 12px;
   }
@@ -5534,15 +5535,15 @@ label {
     margin: 0;
   }
   .faq-accordion .accordion-body {
-    padding: 8px 16px 12px 48px;
+    padding: 12px 20px 20px 48px;
     font-size: 14px;
     text-align: left;
   }
   .faq-accordion .faq-question {
     flex: 1;
-    margin-top: 0;
+    margin-top: 6px;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.6;
   }
   .faq-accordion .accordion-button::after {
     width: 20px;
@@ -7779,10 +7780,10 @@ label {
     border-radius: 6px !important;
   }
   .faq-accordion .accordion-button {
-    padding: 10px 12px;
+    padding: 18px 18px;
     font-size: 13px;
     flex-wrap: nowrap;
-    min-height: auto;
+    min-height: 64px;
     height: auto;
     gap: 10px;
   }
@@ -7795,13 +7796,13 @@ label {
   
   .faq-accordion .faq-question {
     flex: 1;
-    margin-top: 0;
+    margin-top: 5px;
     font-size: 13px;
-    line-height: 1.3;
+    line-height: 1.5;
   }
   
   .faq-accordion .accordion-body {
-    padding: 6px 12px 10px 40px;
+    padding: 10px 18px 18px 40px;
     font-size: 13px;
     text-align: left;
   }
